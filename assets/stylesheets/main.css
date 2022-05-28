@@ -251,6 +251,7 @@ input::-webkit-inner-spin-button {
 
 #guessing-game-input {
   height: 30px;
+  margin: auto;
   box-shadow: var(--black-box-shadow);
   outline: 0;
   border: none;
