@@ -6,83 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>100 Islander</title>
+  <link rel="stylesheet" href="main.css">
   <script src="assets/scripts/jquery-3.5.1.min.js"></script>
-  <link rel="icon" href="assets/favicons/go-rilla-dark.svg">
+  <link rel="icon" href="assets/favicons/island.png">
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --black-box-shadow: -5px 0 0 0 #dda059,
-        5px 0 0 0 #dda059,
-        0 -5px 0 0 #dda059,
-        0 5px 0 0 #dda059;
 
-      --default-font: 'VT323', monospace;
-
-      --blue: #59c9f1;
-      --dark-blue: #151152;
-      --red: #b52121;
-      --brown: #6b3710;
-      --light-brown: #dda059;
-      --yellow: #ffd921;
-    }
-
-    .collapse {
-      display: none;
-    }
-
-    body {
-      background-color: #b0cdaf;
-      font-family: var(--default-font);
-      font-size: 25px;
-      color: #101010;
-    }
-
-    .donothighlight {
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    .game-title {
-      color: #5b3125;
-    }
-
-    .guessing-game-container {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      width: 500px;
-    }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    #guessing-game-input {
-      height: 30px;
-      box-shadow: var(--black-box-shadow);
-      outline: 0;
-      border: none;
-      font-family: var(--default-font);
-      font-size: 25px;
-      color: #101010;
-    }
-
-    .ui-btn {
-      margin: 2em auto;
-      box-shadow: var(--black-box-shadow);
-      font-family: var(--default-font);
-      font-size: 20px;
-      color: #101010;
-      cursor: pointer;
-      background-color: #ffd921;
-    }
   </style>
 
   <script>
@@ -103,10 +33,17 @@
 </head>
 
 <body>
-  <div class="guessing-game-container donothighlight">
-    <h1 class="game-title">100 Islander</h1>
+  <div class="main-container donothighlight">
+    <h1 class="game-title">100 Islander 🏝️</h1>
     <p class="collapse">You are a bastard orphan, son/daughter of a whore who lives in an island. You're too broke. You must stand up on your own if you want to reach any success in this life. This is not a get rich quick scheme, you have to be really think. Right now the only way you can make money is by playing the guessing game in the streets.</p>
-    <p id="refresh-page-dialog-1">Before we begin, take this apple juice. 🧃 <button class="ui-btn" onclick="appleJuiceRefresher();">Drink the apple juice.</button></p>
+    <div id="refresh-page-dialog-1">
+      <p>Before we begin, why don't you choose a refreshment?</p>
+      <p>🧃🍺🧋</p>
+      <button class="ui-btn" onclick="drinksRefresher('juice');">Take and drink the apple juice.</button>
+      <button class="ui-btn" onclick="drinksRefresher('beer');">Take and chug the cold beer.</button>
+      <button class="ui-btn" onclick="drinksRefresher('boba');">Take and slurp the yummy boba.</button>
+    </div>
+
     <p class="collapse" id="refresh-page-dialog-2">You suddenly feel dizzy 🤢</p>
 
     <div class="collapse" id="guessing-game-container">
@@ -126,9 +63,19 @@
   <script src="guessing-game.js"></script>
 
   <script>
-    function appleJuiceRefresher() {
+    function drinksRefresher(type) {
+      if (type == 'juice') {
+        localStorage.setItem('selected_drink', 'apple_juice');
+        localStorage.setItem('drink_drank', 'yes');
+      } else if (type == 'beer') {
+        localStorage.setItem('selected_drink', 'cold_beer');
+        localStorage.setItem('drink_drank', 'yes');
+      } else if (type == 'boba') {
+        localStorage.setItem('selected_drink', 'yummy_boba');
+        localStorage.setItem('drink_drank', 'yes');
+      }
+
       $('#refresh-page-dialog-1').fadeOut();
-      localStorage.setItem('apple_juice_drank', "yes")
 
       setTimeout(function () {
         $('#refresh-page-dialog-2').fadeIn();
@@ -140,7 +87,7 @@
 
     }
 
-    if (localStorage.getItem('apple_juice_drank') == "yes") {
+    if (localStorage.getItem('drink_drank') == 'yes') {
       document.querySelector('#refresh-page-dialog-1').style.display = 'none';
       $('#guessing-game-container').fadeIn();
     }

@@ -111,28 +111,32 @@ function startGuessingGame() {
         if (guesses == 4) {
           localStorage.setItem('total_game_cash', (localCash + 1 + localWins) * 5);
           gameCashUI.innerHTML = `Cash: $${((localCash += 1 + localWins) * 5).toLocaleString()}`
-          systemMessageUI.innerHTML = `You earned $${(localWins + 1) * 5}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $${(localWins + 1) * 5}. <br> [${gameInput.value.padStart(3, '0')}] You won in first try! Unbelievable! 😱 <br> ${systemMessageUI.innerHTML}`
           localStorage.setItem('total_game_wins', localWins + 1);
           totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
-        }
-        else if (guesses == 3) {
+        } else if (guesses == 3) {
           localStorage.setItem('total_game_cash', (localCash + 1 + localWins) * 4);
           gameCashUI.innerHTML = `Cash: $${((localCash += 1 + localWins) * 4).toLocaleString()}`
-          systemMessageUI.innerHTML = `You earned $${(localWins + 1) * 4}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $${(localWins + 1) * 4}. <br> [${gameInput.value.padStart(3, '0')}] You won in second try! Excellent! 🤩 <br> ${systemMessageUI.innerHTML}`
           localStorage.setItem('total_game_wins', localWins + 1);
           totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
-        }
-        else if (guesses == 2) {
+        } else if (guesses == 2) {
           localStorage.setItem('total_game_cash', (localCash + 1 + localWins) * 3);
           gameCashUI.innerHTML = `Cash: $${((localCash += 1 + localWins) * 3).toLocaleString()}`
-          systemMessageUI.innerHTML = `You earned $${(localWins + 1) * 3}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $${(localWins + 1) * 3}. <br> [${gameInput.value.padStart(3, '0')}] You won in third try! Way to go! 🥳 <br> ${systemMessageUI.innerHTML}`
+          localStorage.setItem('total_game_wins', localWins + 1);
+          totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
+        } else if (guesses == 1) {
+          localStorage.setItem('total_game_cash', localCash + 1 + localWins);
+          gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
+          systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
           localStorage.setItem('total_game_wins', localWins + 1);
           totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
         }
         else {
           localStorage.setItem('total_game_cash', localCash + 1 + localWins);
           gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
-          systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won! That's a close one! 😮‍💨 <br> ${systemMessageUI.innerHTML}`
           localStorage.setItem('total_game_wins', localWins + 1);
           totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
         }
