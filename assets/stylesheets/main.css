@@ -245,6 +245,10 @@ input::-webkit-inner-spin-button {
   font-size: 1.5rem;
 }
 
+#refresh-page-dialog-1 {
+  font-size: 1.5rem;
+}
+
 #guessing-game-input {
   height: 30px;
   box-shadow: var(--black-box-shadow);
@@ -256,13 +260,18 @@ input::-webkit-inner-spin-button {
 }
 
 .location-headers {
-  box-shadow: var(--location-box-shadow);
+  position: absolute;
+  right: 0;
   font-family: var(--default-font);
   font-size: 1.5rem;
   color: #222;
   cursor: default;
   background-color: transparent;
   border: none;
+}
+
+.nav-back-btn {
+  box-shadow: var(--location-box-shadow);
 }
 
 .ui-btn {
