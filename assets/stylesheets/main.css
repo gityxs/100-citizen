@@ -253,6 +253,7 @@ input {
   font-size: 25px;
   color: var(--default-text);
   display: block;
+  text-align: center;
 }
 
 input::-webkit-outer-spin-button,
