@@ -101,7 +101,7 @@ function startGuessingGame() {
         totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
         localStorage.setItem('total_game_cash', localCash + 1);
         gameCashUI.innerHTML = `$${(localCash += 1).toLocaleString()}`
-        systemMessageUI.innerHTML = `You earned $1. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
+        systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
       }
 
       // IF Lost
