@@ -56,7 +56,7 @@ function startGuessingGame() {
   document.querySelector('#start-btn').style.display = 'none';
 
   gameInput.focus();
-  document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
+  // document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
 
   triesUI.innerHTML = `Guesses: 5`;
   systemMessageUI.innerHTML = ``
