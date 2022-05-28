@@ -104,7 +104,7 @@ function startGuessingGame() {
       // IF Won
       else if (gameInput.value == randomNumber) {
         gameInput.style.display = 'none';
-        document.querySelector('#restart-btn').style.display = 'block';
+        document.querySelector('#restart-btn').style.display = 'inline-block';
         guessesUI.innerHTML = `Remaining Guesses: ${guesses -= 1}`;
         gameOngoing = false;
 
@@ -146,7 +146,7 @@ function startGuessingGame() {
       if (gameInput.value != randomNumber && guesses == 0) {
         systemMessageUI.innerHTML = `Game over. 😭 <br><br> Target: ${randomNumber} <br> ${systemMessageUI.innerHTML}`
         gameInput.style.display = 'none';
-        document.querySelector('#restart-btn').style.display = 'block';
+        document.querySelector('#restart-btn').style.display = 'inline-block';
         guessesUI.innerHTML = `Remaining Guesses: ${guesses}`;
         gameOngoing = false;
         localStorage.setItem('total_game_losses', localLosses + 1);

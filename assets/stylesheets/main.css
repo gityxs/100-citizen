@@ -1,8 +1,11 @@
 :root {
+
   --black-box-shadow: -5px 0 0 0 #dda059,
     5px 0 0 0 #dda059,
     0 -5px 0 0 #dda059,
     0 5px 0 0 #dda059;
+
+  --location-box-shadow: 0 5px 0 0 #262b29;
 
   --default-font: 'VT323', monospace;
 
@@ -219,7 +222,7 @@ p {
 }
 
 .game-title {
-  color: var(--dark-blue);
+  color: var(--default-text);
   font-size: 2.5rem;
 }
 
@@ -228,7 +231,8 @@ p {
   left: 50%;
   transform: translate(-50%);
   width: 600px;
-  height: 92%
+  height: 92%;
+  padding-left: 10px;
 }
 
 input::-webkit-outer-spin-button,
@@ -251,8 +255,17 @@ input::-webkit-inner-spin-button {
   color: var(--default-text);
 }
 
+.location-headers {
+  box-shadow: var(--location-box-shadow);
+  font-family: var(--default-font);
+  font-size: 1.5rem;
+  color: #222;
+  cursor: default;
+  background-color: transparent;
+  border: none;
+}
+
 .ui-btn {
-  margin: .7rem auto;
   box-shadow: var(--black-box-shadow);
   font-family: var(--default-font);
   font-size: 1.4rem;
@@ -267,5 +280,5 @@ input::-webkit-inner-spin-button {
 
 .ui-btn:active {
   filter: brightness(95%);
-  transform: translateY(3px);
+  transform: translateY(2px);
 }

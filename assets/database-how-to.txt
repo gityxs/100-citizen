@@ -1,0 +1,17 @@
+I'll first give you a high-level idea of how this can be done so you can then decide if you really wish to.
+
+First you'll have to use some service like Netlify Identity to authenticate the users. This is so that you can save the score on a user-level.
+
+Then, you'd have to select a database provider like MongoDB, Firebase Realtime or Firestore DB, FaunaDB, etc.
+
+Once you have selected a service, you'd have to write a Netlify Function to connect to the database, create a document for each user and save the user's score in the respective document. I'm recommending Netlify Functions to keep access keys secure. But I believe you can do this in client-side JavaScript too.
+
+Finally, you'd also have to write a similar code to restore or fetch the score from the database every time a user wishes to play the game.
+
+
+-------------------
+
+You could use netlify serverless functions to call out to a cloud database service, and you could use something like Supabase which has a nice API.
+
+I say use serverless functions rather than calling out to Supabase on the client as you’ll need to store your API keys as environment variables (which you don’t want to expose to the client)
+I do a similar thing on this unfinished branch of a plain HTML, JS site, where I’m storing things in a mongo database. https://github.com/whitep4nth3r/gameofcodes.party/tree/add-leaderboard
