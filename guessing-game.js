@@ -105,7 +105,7 @@ function startGuessingGame() {
 
       // IF Won
       else if (gameInput.value == randomNumber) {
-        gameInput.style.display = 'none';
+        $(gameInput).fadeOut();
         setTimeout(function () {
           $('#restart-btn').fadeIn();
         }, 500);
@@ -154,7 +154,9 @@ function startGuessingGame() {
         gameOngoing = false;
         localStorage.setItem('total_game_losses', localLosses + 1);
         totalLossesUI.innerHTML = `Losses: ${(localLosses += 1).toLocaleString()}`
-        $('#restart-btn').fadeIn();
+        setTimeout(function () {
+          $('#restart-btn').fadeIn();
+        }, 500);
       }
 
       gameInput.value = '';
