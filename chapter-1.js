@@ -1,3 +1,7 @@
+if (localStorage.getItem('islander_name') == null) {
+  $('#character-creation-dialog').fadeIn();
+}
+
 if (localStorage.getItem('islander_name') !== null) {
   $('#character-creation-dialog').hide();
 }
