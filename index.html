@@ -36,22 +36,34 @@
   <div class="main-container mt-3 donothighlight">
     <!-- <h1 class="game-title">100 Islander</h1> -->
     <p class="collapse">You are a bastard orphan, son/daughter of a whore who lives in an island. You're too broke. You must stand up on your own if you want to reach any success in this life. This is not a get rich quick scheme, you have to be really think. Right now the only way you can make money is by playing the guessing game in the streets.</p>
-    <div id="refresh-page-dialog-1">
+
+    <section class="text-center" id="character-creation-dialog">
+      <div class="nav-back-btn mt-2 mb-3">Character Creation</div>
+      <input id="islander-name-input" type="text" autocomplete="off" spellcheck="false" placeholder="Name">
+      <a class="collapse mt-1" id="required-input-islander-name">*Please enter a name</a>
+      <button class="ui-btn mt-3" onclick="confirmCharacterCreation();">Confirm</button>
+    </section>
+
+    <section class="collapse" id="refresh-page-dialog-1">
       <div class="location-headers">The Dancing Crab</div>
       <div class="nav-back-btn mt-2 mb-3">&lt; Home</div>
-      <p>Before we begin, why don't you choose a refreshment?</p>
-      <p style="font-size:2rem;">🧃🍺🧋</p>
-      <button class="ui-btn mt-3" onclick="drinksRefresher('juice');">Take and drink the apple juice.</button>
-      <button class="ui-btn mt-3" onclick="drinksRefresher('beer');">Take and chug the cold beer.</button>
-      <button class="ui-btn mt-3" onclick="drinksRefresher('boba');">Take and slurp the magical boba.</button>
-    </div>
+      <div class="text-center">
+        <p>Before we begin, why don't you choose a refreshment?</p>
+        <p style="font-size:2rem;">🧃🍺🧋</p>
+        <button class="ui-btn mt-3" onclick="drinksRefresher('juice');">Take and drink the apple juice.</button>
+        <button class="ui-btn mt-3" onclick="drinksRefresher('beer');">Take and chug the cold beer.</button>
+        <button class="ui-btn mt-3" onclick="drinksRefresher('boba');">Take and slurp the magical boba.</button>
+      </div>
+    </section>
 
-    <p class="collapse" id="refresh-page-dialog-2">You suddenly feel dizzy 🤢</p>
+    <section class="text-center">
+      <p class="collapse" id="refresh-page-dialog-2">You suddenly feel dizzy 🤢</p>
+    </section>
 
-    <div class="collapse" id="guessing-game-container">
+    <section class="collapse" id="guessing-game-container">
       <div class="location-headers">The Dancing Crab</div>
       <div class="nav-back-btn mt-2 mb-3">&lt; Home</div>
-      <div style="text-align:center">
+      <div class="text-center">
         <a class="mt-4" id="game-cash"></a>
         <a class="mt-4" id="total-number-of-wins"></a>
         <a class="mt-4" id="total-number-of-losses"></a>
@@ -59,46 +71,15 @@
         <div class="mt-4 mb-4" id="number-of-guesses"></div>
         <button class="ui-btn mt-5" id="start-btn" onclick="startGuessingGame();">Start (R)</button>
         <button class="ui-btn collapse" id="restart-btn" onclick="playAgain();">Play again (R)</button>
-        <input class="collapse mt-5" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
+        <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
+        <a class="collapse mt-1" id="greater-than-100-note">Enter any digit from 0 to 100</a>
         <div class="mt-4" id="system-message"></div>
       </div>
-
-    </div>
-
+    </section>
   </div>
 
   <script src="guessing-game.js"></script>
-
-  <script>
-    function drinksRefresher(type) {
-      if (type == 'juice') {
-        localStorage.setItem('selected_drink', 'apple_juice');
-        localStorage.setItem('drink_drank', 'yes');
-      } else if (type == 'beer') {
-        localStorage.setItem('selected_drink', 'cold_beer');
-        localStorage.setItem('drink_drank', 'yes');
-      } else if (type == 'boba') {
-        localStorage.setItem('selected_drink', 'yummy_boba');
-        localStorage.setItem('drink_drank', 'yes');
-      }
-
-      $('#refresh-page-dialog-1').fadeOut();
-
-      setTimeout(function () {
-        $('#refresh-page-dialog-2').fadeIn();
-      }, 500);
-
-      setTimeout(function () {
-        window.location.reload();
-      }, 2400);
-
-    }
-
-    if (localStorage.getItem('drink_drank') == 'yes') {
-      document.querySelector('#refresh-page-dialog-1').style.display = 'none';
-      $('#guessing-game-container').fadeIn();
-    }
-  </script>
+  <script src="chapter-1.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZT7MWBMZ9"></script>
   <script>

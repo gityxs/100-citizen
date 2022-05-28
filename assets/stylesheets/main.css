@@ -207,6 +207,10 @@ html {
   padding-bottom: 3rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 body {
   background-color: #b0cdaf;
   font-family: var(--default-font);
@@ -235,21 +239,11 @@ p {
   padding-left: 10px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-#guessing-game-container {
+#character-creation-dialog, #refresh-page-dialog-1, #guessing-game-container {
   font-size: 1.5rem;
 }
 
-#refresh-page-dialog-1 {
-  font-size: 1.5rem;
-}
-
-#guessing-game-input {
+input {
   height: 30px;
   margin: auto;
   box-shadow: var(--black-box-shadow);
@@ -258,6 +252,18 @@ input::-webkit-inner-spin-button {
   font-family: var(--default-font);
   font-size: 25px;
   color: var(--default-text);
+  display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#required-input-islander-name, #greater-than-100-note {
+  font-size: 1rem;
+  color: var(--red);
 }
 
 .location-headers {

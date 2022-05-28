@@ -154,8 +154,15 @@ function startGuessingGame() {
       }
 
       gameInput.value = '';
+      $('#greater-than-100-note').fadeOut();
+      document.querySelector('#greater-than-100-note').style.display = 'none';
 
+    } if (gameInput.value > 100 && randomNumber < 100) {
+      $('#greater-than-100-note').fadeIn();
+      document.querySelector('#greater-than-100-note').style.display = 'block';
     }
   });
 
 }
+
+
