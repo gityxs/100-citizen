@@ -68,7 +68,7 @@ function startGuessingGame() {
   setTimeout(function () {
     $('#guessing-game-input').fadeIn();
     gameInput.focus();
-    document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
+    // document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
     guessesUI.innerHTML = `Remaining Guesses: 5`;
     systemMessageUI.innerHTML = ``
   }, 500);
