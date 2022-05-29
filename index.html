@@ -31,8 +31,8 @@
 
 <body>
 
-  <!-- <a id="debugging-interval-counter" onclick="resetCash();">Reset Cash</a><br>
-  <a id="debug-answer"></a> -->
+  <!-- <a id="debugging-interval-counter" onclick="resetCash();">Reset Cash</a><br> -->
+  <a id="debug-answer"></a>
 
   <div class="main-container mt-3 donothighlight">
     <!-- <h1 class="game-title">100 Islander</h1> -->
@@ -67,7 +67,7 @@
 
     <section class="collapse" id="guessing-game-container">
       <div class="location-headers">The Dancing Crab</div>
-      <div class="nav-back-btn mt-2 mb-3">&lt; Home</div>
+      <div class="nav-back-btn mt-2 mb-3" onclick="endGuessingGame();">&lt; Home</div>
       <div class="text-center">
         <a class="mt-4 me-3" id="game-cash"></a>
         <a class="mt-4 me-3" id="total-number-of-wins"></a>
@@ -76,7 +76,7 @@
         <button class="ui-btn mt-5" id="start-btn" onclick="startGuessingGame();">Start (R)</button>
         <button class="collapse ui-btn" id="restart-btn" onclick="playAgain();">Play again (R)</button>
         <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
-        <a class="collapse mt-1" id="greater-than-100-note">*Any number from 0 to 100</a>
+        <a class="collapse mt-1" id="greater-than-100-note">*Guess a number from 0 to 100</a>
         <div class="mt-4" id="system-message"></div>
       </div>
     </section>
