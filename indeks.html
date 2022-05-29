@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Islander</title>
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <script src="assets/scripts/jquery-3.5.1.min.js"></script>
+  <script src="header.js"></script>
+  <link rel="icon" href="assets/favicons/island.png">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <style>
+    #debugging-interval-counter,
+    #debug-answer {
+      position: absolute;
+      z-index: 999;
+    }
+  </style>
+
+  <script>
+    function resetCash() {
+      localStorage.removeItem('total_game_cash');
+      localStorage.removeItem('total_game_wins');
+      localStorage.removeItem('total_game_losses');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- <a id="debugging-interval-counter" onclick="resetCash();">Reset Cash</a><br> -->
+  <a id="debug-answer"></a>
+
+  <div class="main-container mt-3 donothighlight">
+    <!-- <h1 class="game-title">100 Islander</h1> -->
+    <p class="collapse">You are a bastard orphan, son/daughter of a whore who lives in an island. You're too broke. You must stand up on your own if you want to reach any success in this life. This is not a get rich quick scheme, you have to be really think. Right now the only way you can make money is by playing the guessing game in the streets.</p>
+
+    <section class="collapse text-center" id="character-creation-dialog">
+      <div class="nav-back-btn mt-2 mb-3">Character Creation</div>
+      <p class="mt-5">What would you like to be called?</p>
+      <input id="islander-name-input" type="text" autocomplete="off" spellcheck="false" placeholder="Your name">
+      <a class="collapse mt-1" id="required-input-islander-name">*You can't go in a stranger</a>
+      <h4>Chapter 1: Saru Island</h4>
+      <p>You are about to embark on a journey of self-development. Discover the secrets of this bountiful island, build a home, start a business, and get to know the people in the community.</p>
+      <p>It's all up to you... work non-stop or just take your time... You are in charge of your fate.</p>
+      <button class="ui-btn mt-4" onclick="confirmCharacterCreation();">Confirm</button>
+    </section>
+
+    <section class="collapse" id="refresh-page-dialog-1">
+      <div class="location-headers">The Dancing Crab</div>
+      <div class="nav-back-btn mt-2 mb-3">&lt; Home</div>
+      <div class="text-center">
+        <p>Before we begin, why don't you choose a refreshment?</p>
+        <p style="font-size:2rem;">🧃🍺🧋</p>
+        <button class="ui-btn mt-3" onclick="drinksRefresher('juice');">Take and drink the apple juice.</button>
+        <button class="ui-btn mt-3" onclick="drinksRefresher('beer');">Take and chug the cold beer.</button>
+        <button class="ui-btn mt-3" onclick="drinksRefresher('boba');">Take and slurp the magical boba.</button>
+      </div>
+    </section>
+
+    <section class="text-center">
+      <p class="collapse" id="refresh-page-dialog-2">You suddenly feel dizzy 🤢</p>
+    </section>
+
+    <section class="collapse" id="guessing-game-container">
+      <div class="location-headers">The Dancing Crab</div>
+      <div class="nav-back-btn mt-2 mb-3" onclick="endGuessingGame();">&lt; Home</div>
+      <div class="text-center">
+        <a class="mt-4 me-3" id="game-cash"></a>
+        <a class="mt-4 me-3" id="total-number-of-wins"></a>
+        <a class="mt-4" id="total-number-of-losses"></a><br>
+        <div class="mt-4 mb-4" id="number-of-guesses"></div>
+        <button class="ui-btn mt-5" id="start-btn" onclick="startGuessingGame();">Start (R)</button>
+        <button class="collapse ui-btn" id="restart-btn" onclick="playAgain();">Play again (R)</button>
+        <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
+        <a class="collapse mt-1" id="greater-than-100-note">*Guess a number from 0 to 100</a>
+        <div class="mt-4" id="system-message"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="game-controls.js"></script>
+  <script src="guessing-game.js"></script>
+  <script src="chapter-1.js"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZT7MWBMZ9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TZT7MWBMZ9');
+  </script>
+</body>
+
+</html>

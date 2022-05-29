@@ -14,39 +14,6 @@ let randomNumber = 0;
 let guesses = 0;
 let gameOngoing = false;
 
-//CASH STAT
-if (localStorage.getItem('total_game_cash') === null) {
-  localStorage.setItem('total_game_cash', 0);
-  gameCashUI.innerHTML = `CASH: $0`
-} else {
-  setInterval(updateGameCashTicker, 33);
-  function updateGameCashTicker() {
-    gameCashUI.innerHTML = `CASH: $${localStorage.getItem('total_game_cash').toLocaleString()}`
-  }
-}
-
-// WINS STAT
-if (localStorage.getItem('total_game_wins') === null) {
-  localStorage.setItem('total_game_wins', 0);
-  totalWinsUI.innerHTML = `WINS: 0`
-} else {
-  setInterval(updateGameWinsTicker, 33);
-  function updateGameWinsTicker() {
-    totalWinsUI.innerHTML = `WINS: ${localStorage.getItem('total_game_wins').toLocaleString()}`
-  }
-}
-
-// LOSSES STAT
-if (localStorage.getItem('total_game_losses') === null) {
-  localStorage.setItem('total_game_losses', 0);
-  totalLossesUI.innerHTML = `LOSSES: 0`
-} else {
-  setInterval(updateGameLossesTicker, 33);
-  function updateGameLossesTicker() {
-    totalLossesUI.innerHTML = `LOSSES: ${localStorage.getItem('total_game_losses').toLocaleString()}`
-  }
-}
-
 function generateRandomNumber() {
   randomNumber = Math.floor(Math.random() * 100);
   guesses = 5;
@@ -69,9 +36,7 @@ function incrementGameWins() {
   localStorage.setItem('total_game_wins', localWins += 1);
 }
 
-function decrementGuessesTicker() {
-  guessesUI.innerHTML = `Remaining Guesses: ${guesses}`
-}
+
 
 /**************************************************************************************/
 
@@ -83,11 +48,14 @@ function startGuessingGame() {
   setTimeout(function () {
     $('#guessing-game-input').fadeIn();
     setInterval(decrementGuessesTicker, 33);
+    function decrementGuessesTicker() {
+      guessesUI.innerHTML = `Remaining Guesses: ${guesses}`
+    }
     gameInput.focus();
     // document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
     guesses = 5;
-    systemMessageUI.innerHTML = ``
   }, 500);
+  systemMessageUI.innerHTML = ``
 
   gameInput.addEventListener('keypress', function (e) {
     if (event.key === 'Enter' && gameInput.value.length > 0 && gameInput.value <= 100 && guesses > 0) {
@@ -147,7 +115,7 @@ function startGuessingGame() {
       // IF Lost
       if (gameInput.value != randomNumber && guesses == 0) {
         $(gameInput).fadeOut();
-        systemMessageUI.innerHTML = `Game over. 😭 <br><br> Secret Number: ${randomNumber} <br> ${systemMessageUI.innerHTML}`
+        systemMessageUI.innerHTML = `Game over. 😭 <br><br> The secret number is ${randomNumber} <br> ${systemMessageUI.innerHTML}`
         gameOngoing = false;
         localStorage.setItem('total_game_losses', localLosses += 1);
         setTimeout(function () {
@@ -168,10 +136,22 @@ function startGuessingGame() {
 }
 
 function endGuessingGame() {
-  gameOngoing = false;
-  $('#guessing-game-input').fadeOut();
-  setTimeout(function () {
-    $('#start-btn').fadeIn();
-    systemMessageUI.innerHTML = ``
-  }, 500);
+  if (gameOngoing == true && guesses < 5) {
+    if (confirm('Ending a game will result in a loss. Are you sure you want to quit?') == true) {
+      gameOngoing = false;
+      localStorage.setItem('total_game_losses', localLosses += 1);
+      $('#guessing-game-input').fadeOut();
+      setTimeout(function () {
+        $('#start-btn').fadeIn();
+        systemMessageUI.innerHTML = ``
+      }, 500);
+    }
+  } else {
+    gameOngoing = false;
+    $('#guessing-game-input').fadeOut();
+    setTimeout(function () {
+      $('#start-btn').fadeIn();
+      systemMessageUI.innerHTML = ``
+    }, 500);
+  }
 }
