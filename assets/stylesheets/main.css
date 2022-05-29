@@ -11,6 +11,7 @@
 
   --default-text: #101010;
   --blue: #59c9f1;
+  --blue-green: #b0cdaf;
   --dark-blue: #151152;
   --red: #b52121;
   --brown: #6b3710;
@@ -212,7 +213,7 @@ html {
 }
 
 body {
-  background-color: #b0cdaf;
+  background-color: var(--blue-green);
   font-family: var(--default-font);
   color: var(--default-text);
 }
@@ -272,7 +273,7 @@ input::-webkit-inner-spin-button {
   right: 0;
   font-family: var(--default-font);
   font-size: 1.5rem;
-  color: #222;
+  color: var(--default-text);
   cursor: default;
   background-color: transparent;
   border: none;

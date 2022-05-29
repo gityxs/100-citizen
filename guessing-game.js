@@ -14,28 +14,40 @@ let randomNumber = 0;
 let guesses = 0;
 let gameOngoing = false;
 
+// WINS STAT
 if (localStorage.getItem('total_game_wins') === null) {
   localStorage.setItem('total_game_wins', 0);
   totalWinsUI.innerHTML = `Wins: 0`
 }
 else {
-  totalWinsUI.innerHTML = `Wins: ${(localWins).toLocaleString()}`
+  setInterval(updateGameWinsTicker, 33);
+  function updateGameWinsTicker() {
+    totalWinsUI.innerHTML = `WINS: ${localStorage.getItem('total_game_wins').toLocaleString()}`
+  }
 }
 
+// LOSSES STAT
 if (localStorage.getItem('total_game_losses') === null) {
   localStorage.setItem('total_game_losses', 0);
   totalLossesUI.innerHTML = `Losses: 0`
 }
 else {
-  totalLossesUI.innerHTML = `Losses: ${(localLosses).toLocaleString()}`
+  setInterval(updateGameLossesTicker, 33);
+  function updateGameLossesTicker() {
+    totalLossesUI.innerHTML = `LOSSES: ${localStorage.getItem('total_game_losses').toLocaleString()}`
+  }
 }
 
+//CASH STAT
 if (localStorage.getItem('total_game_cash') === null) {
   localStorage.setItem('total_game_cash', 0);
   gameCashUI.innerHTML = `Cash: $0`
 }
 else {
-  gameCashUI.innerHTML = `Cash: $${(localCash).toLocaleString()}`
+  setInterval(updateGameCashTicker, 33);
+  function updateGameCashTicker() {
+    gameCashUI.innerHTML = `CASH: $${localStorage.getItem('total_game_cash').toLocaleString()}`
+  }
 }
 
 function generateRandomNumber() {
@@ -56,7 +68,6 @@ $(document).on('keydown', function (e) {
   }
 });
 
-
 /**************************************************************************************/
 
 // Start the game
@@ -68,7 +79,7 @@ function startGuessingGame() {
   setTimeout(function () {
     $('#guessing-game-input').fadeIn();
     gameInput.focus();
-    // document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
+    document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
     guessesUI.innerHTML = `Remaining Guesses: 5`;
     systemMessageUI.innerHTML = ``
   }, 500);
@@ -114,35 +125,25 @@ function startGuessingGame() {
         gameOngoing = false;
 
         if (guesses == 4) {
-          localStorage.setItem('total_game_cash', localCash + 1 + localWins);
-          gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
+          localStorage.setItem('total_game_cash', localCash += 1 + localWins);
           systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won in first try! Unbelievable! 😱 <br> ${systemMessageUI.innerHTML}`
-          localStorage.setItem('total_game_wins', localWins + 1);
-          totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
+          localStorage.setItem('total_game_wins', localWins += 1);
         } else if (guesses == 3) {
-          localStorage.setItem('total_game_cash', localCash + 1 + localWins);
-          gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
+          localStorage.setItem('total_game_cash', localCash += 1 + localWins)
           systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won in second try! Excellent! 🤩 <br> ${systemMessageUI.innerHTML}`
-          localStorage.setItem('total_game_wins', localWins + 1);
-          totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
+          localStorage.setItem('total_game_wins', localWins += 1);
         } else if (guesses == 2) {
-          localStorage.setItem('total_game_cash', localCash + 1 + localWins);
-          gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
+          localStorage.setItem('total_game_cash', localCash += 1 + localWins)
           systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won in third try! Way to go! 🥳 <br> ${systemMessageUI.innerHTML}`
-          localStorage.setItem('total_game_wins', localWins + 1);
-          totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
+          localStorage.setItem('total_game_wins', localWins += 1);
         } else if (guesses == 1) {
-          localStorage.setItem('total_game_cash', localCash + 1 + localWins);
-          gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
+          localStorage.setItem('total_game_cash', localCash += 1 + localWins)
           systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
-          localStorage.setItem('total_game_wins', localWins + 1);
-          totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
+          localStorage.setItem('total_game_wins', localWins += 1);
         } else if (guesses == 0) {
-          localStorage.setItem('total_game_cash', localCash + 1 + localWins);
-          gameCashUI.innerHTML = `Cash: $${(localCash += 1 + localWins).toLocaleString()}`
+          localStorage.setItem('total_game_cash', localCash += 1 + localWins)
           systemMessageUI.innerHTML = `You earned $${localWins + 1}. <br> [${gameInput.value.padStart(3, '0')}] You won! That's a close one! 😮‍💨 <br> ${systemMessageUI.innerHTML}`
-          localStorage.setItem('total_game_wins', localWins + 1);
-          totalWinsUI.innerHTML = `Wins: ${(localWins += 1).toLocaleString()}`
+          localStorage.setItem('total_game_wins', localWins += 1);
         }
       }
 
@@ -152,8 +153,7 @@ function startGuessingGame() {
         systemMessageUI.innerHTML = `Game over. 😭 <br><br> Secret Number: ${randomNumber} <br> ${systemMessageUI.innerHTML}`
         guessesUI.innerHTML = `Remaining Guesses: ${guesses}`;
         gameOngoing = false;
-        localStorage.setItem('total_game_losses', localLosses + 1);
-        totalLossesUI.innerHTML = `Losses: ${(localLosses += 1).toLocaleString()}`
+        localStorage.setItem('total_game_losses', localLosses += 1);
         setTimeout(function () {
           $('#restart-btn').fadeIn();
         }, 500);

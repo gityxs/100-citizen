@@ -1,9 +1,13 @@
+// setInterval(onTimerTick, 2500); // 33 milliseconds = ~ 30 frames per sec
+// function onTimerTick() {
+//     console.log('time')
+//     let timer = Math.floor(Math.random() * 100);
+//     document.querySelector('#debugging-interval-counter').innerHTML = timer;
+//     localStorage.setItem('debug_timer', timer);
+// }
+
 if (localStorage.getItem('islander_name') == null) {
   $('#character-creation-dialog').fadeIn();
-}
-
-if (localStorage.getItem('islander_name') !== null) {
-  $('#character-creation-dialog').hide();
 }
 
 if (localStorage.getItem('islander_name') !== null) {
@@ -40,7 +44,7 @@ function drinksRefresher(type) {
     localStorage.setItem('selected_drink', 'cold_beer');
     localStorage.setItem('drink_drank', 'yes');
   } else if (type == 'boba') {
-    localStorage.setItem('selected_drink', 'yummy_boba');
+    localStorage.setItem('selected_drink', 'magical_boba');
     localStorage.setItem('drink_drank', 'yes');
   }
 
