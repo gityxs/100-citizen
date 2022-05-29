@@ -6,7 +6,7 @@ starterDialogue = `<h2 class="high-em">Welcome to SáruCity!</h2>
 borderPatrolDialogue1 = `<div class="blue-location-card" id="border-patrol-dialogue-1">
 <h5 class="high-em text-center"><a>SC Border Patrol Office</a></h5>
 <div>
-  <p class="mid-em">Hi, my name is <a>Officer Saeki</a> and welcome to <a>Sáru City</a>... if you can please show me your papers and identification?</p>
+  <p class="mid-em">Hi, my name is <a>Officer Saeki</a> and welcome to <a>SáruCity</a>... if you can please show me your papers and identification?</p>
   <p class="mid-em">Also, here's a form you have to sign...</p>
   <label class="mid-em" for="citizen-username-input">Your name:</label>
   <input class="u-full-width" id="citizen-username-input" type="text" autocomplete="off" spellcheck="false" placeholder="Name">
@@ -31,10 +31,10 @@ borderPatrolDialogue1 = `<div class="blue-location-card" id="border-patrol-dialo
         <option value="Lad">Lad</option>
         <option value="Lady">Lady</option>
         <option value="Maam">Maam</option>
-        <option value="Madam">Men</option>
+        <option value="Madam">Madam</option>
         <option value="Man">Man</option>
         <option value="Men">Men</option>
-        <option value="Mister.">Men</option>
+        <option value="Mister.">Mister</option>
         <option value="Sir">Sir</option>
       </select>
     </div>
