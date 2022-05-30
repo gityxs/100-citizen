@@ -145,7 +145,7 @@ razeBarPrologueTutorial = `<div class="blue-location-card" id="raze-prologue-tut
   <hr>
   <div class="align-right">
     <button onclick="fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Wait... that doesn't make any sense.</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Sounds like they will just take away my money.</button>
+    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Doesn't sound easy money.</button>
   </div>
 </div>
 
