@@ -150,11 +150,11 @@ razeBarPrologueTutorial = `<div class="blue-location-card" id="raze-prologue-tut
 </div>
 
 <div class="collapse" id="raze-bar-prologue-6"><a>(${sibling})</a>
-  <p class="mid-em">Okay... so here's the good part. Everytime you win, it's being recorded in their system... and that will add up to your winnings. That means, if you've won 3 times before, and you win again, you'll be getting 4 dollars instead of 1 and so on...</p>
+  <p class="mid-em">Okay... so here's the good part. Everytime you win, it's being recorded in their system... and that will add up to your winnings. That means, if you've won 3 times before, and you win again, you'll be getting 4 dollars instead of 1 and so on... and it doesn't have to be a win streak.</p>
   <br><br>
   <hr>
   <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-6');fadeInNormalDelay('#raze-bar-prologue-7');">I see, now that's starting to make sense.</button>
+    <button onclick="fadeOut('#raze-bar-prologue-6');fadeInNormalDelay('#raze-bar-prologue-7');">I understand it now.</button>
   </div>
 </div>
 
@@ -169,7 +169,7 @@ razeBarPrologueTutorial = `<div class="blue-location-card" id="raze-prologue-tut
 </div>
 
 <div class="collapse" id="raze-bar-prologue-8"><a>(${sibling})</a>
-  <p class="mid-em">Now now... I know that you probably don't have a dollar to your name right now. So why don't you take this 20 bucks... you can pay it back to me later if you want.</p>
+  <p class="mid-em">Now now... I know that you probably don't have a dollar to your name, right? So here's 20 bucks... you can pay it back to me later if you want.</p>
   <p class="mid-em">Just don't lose it all, alright?</p>
   <br><br>
   <hr>
