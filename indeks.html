@@ -35,9 +35,6 @@
   <a id="debug-answer"></a>
 
   <div class="main-container mt-3 donothighlight">
-    <!-- <h1 class="game-title">100 Islander</h1> -->
-    <p class="collapse">You are a bastard orphan, son/daughter of a whore who lives in an island. You're too broke. You must stand up on your own if you want to reach any success in this life. This is not a get rich quick scheme, you have to be really think. Right now the only way you can make money is by playing the guessing game in the streets.</p>
-
     <section class="collapse text-center" id="character-creation-dialog">
       <div class="nav-back-btn mt-2 mb-3">Character Creation</div>
       <p class="mt-5">What would you like to be called?</p>
@@ -76,8 +73,7 @@
         <button class="ui-btn mt-5" id="start-btn" onclick="startGuessingGame();">Start (R)</button>
         <button class="collapse ui-btn" id="restart-btn" onclick="playAgain();">Play again (R)</button>
         <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
-        <a class="collapse mt-1" id="greater-than-100-note">*Guess a number from 0 to 100</a>
-        <div class="mt-4" id="system-message"></div>
+        <a class="mt-4" id="system-message"></a>
       </div>
     </section>
   </div>
@@ -86,14 +82,6 @@
   <script src="guessing-game.js"></script>
   <script src="chapter-1.js"></script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZT7MWBMZ9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-TZT7MWBMZ9');
-  </script>
 </body>
 
 </html>

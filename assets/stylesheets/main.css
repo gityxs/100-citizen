@@ -46,7 +46,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#required-input-islander-name, #greater-than-100-note {
+#required-input-islander-name {
   font-size: 1rem;
   color: var(--red);
 }

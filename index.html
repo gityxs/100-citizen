@@ -255,6 +255,15 @@
       color: var(--default-white);
     }
 
+    .game-title {
+      font-size: 9rem;
+    }
+
+    .author-title {
+      text-align: right;
+      margin-right: 2rem;
+    }
+
     .high-em {
       color: var(--default-white);
       opacity: var(--high-em);
@@ -282,11 +291,53 @@
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
-    /* #debugging-interval-counter,
+    .citizen-stats {
+      font-size: 2rem;
+      border: 1px solid #c0c0c0;
+      cursor: default;
+    }
+
+    .citizen-stats:hover {
+      border: 1px solid #c0c0c0;
+      cursor: default;
+    }
+
+    .citizen-stats:focus {
+      border: 1px solid #c0c0c0;
+      cursor: default;
+    }
+
+    .citizen-stats-cash {
+      color: #a5d6a7;
+    }
+
+    .citizen-stats-energy {
+      color: #80deea;
+    }
+
+    .citizen-stats-wins {
+      border: none;
+      font-size: 2rem;
+      color: #a5d6a7;
+      cursor: default;
+    }
+
+    .citizen-stats-losses {
+      border: none;
+      font-size: 2rem;
+      color: #ef9a9a;
+      cursor: default;
+    }
+
+    .guessing-game-start-button {
+      font-size: 2rem;
+    }
+
+    #debugging-interval-counter,
     #debug-answer {
       position: absolute;
       z-index: 999;
-    } */
+    }
   </style>
 
   <script>
@@ -300,7 +351,70 @@
 
 <body>
 
-  <!-- CENTER LEFT -->
+  <!-- <a id="debug-answer"></a> -->
+
+  <!-- GAME TITLE -->
+  <div class="collapse container text-center" id="game-title-frame">
+    <div class="row">
+      <div class="three columns donothighlight">&nbsp;</div>
+      <div class="seven columns donothighlight" style="margin-top: 20%">
+        <h1 class="high-em game-title">100 Citizen</h1>
+        <h5 class="author-title low-em">by Ivma</h5>
+      </div>
+      <div class="two columns donothighlight">&nbsp;</div>
+    </div>
+  </div>
+  <div class="collapse container text-center" id="continue-playing-container">
+    <div class="row">
+      <div class="three columns donothighlight">&nbsp;</div>
+      <div class="seven columns donothighlight" style="margin-top: 10%">
+        <button id="continue-playing-btn" onclick="titleScreenStartUpGame();">CONTINUE PLAYING</button>
+      </div>
+      <div class="two columns donothighlight">&nbsp;</div>
+    </div>
+  </div>
+
+  <!-- CITIZEN STATS -->
+  <div class="collapse container" id="citizen-stats-display">
+    <div class="row" style="margin-top: 5%">
+      <div class="three columns donothighlight">&nbsp;</div>
+      <div class="seven columns donothighlight text-center">&nbsp;
+        <button class="citizen-stats citizen-stats-cash" id="game-cash"></button>
+        <button class="citizen-stats citizen-stats-energy ms-3" id="game-energy"></button>
+      </div>
+      <div class="three columns donothighlight">&nbsp;</div>
+    </div>
+  </div>
+
+  <!-- RAZE BAR -->
+  <div class="collapse container" id="raze-bar-frame">
+    <div class="row">
+      <div class="three columns donothighlight">&nbsp;</div>
+      <div class="seven columns donothighlight" style="margin-top: 3%">
+        <div id="raze-bar-frame-dialogue"></div>
+
+        <div class="blue-location-card collapse text-center" id="guessing-game-container">
+          <h4 class="text-center"><a style="color: var(--bright-pink);">Raze</a></h4>
+          <button id="total-games-played" hidden></button>
+          <button class="citizen-stats-wins" id="total-number-of-wins"></button>
+          <button class="citizen-stats-losses" id="total-number-of-losses"></button><br>
+          <button class="collapse mt-4 mb-4" id="number-of-guesses"></button>
+          <button class="mt-5 guessing-game-start-button" id="start-btn" onclick="startGuessingGame();" style="margin-top: 10%">START (R)</button>
+          <button class="collapse mt-5 guessing-game-start-button" id="restart-btn" onclick="playAgain();" style="margin-top: 10%">PLAY AGAIN (R)</button>
+          <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100" style="margin-top: 10%"><br>
+          <h5 id="system-message" style="margin-top: 10%"></h5>
+        </div>
+
+
+
+
+
+      </div>
+      <div class="two columns donothighlight">&nbsp;</div>
+    </div>
+  </div>
+
+  <!-- DIALOGUE CENTER LEFT -->
   <div class="collapse container" id="center-frame-left-aligned">
     <div class="row">
       <div class="three columns donothighlight">&nbsp;</div>
@@ -311,7 +425,7 @@
     </div>
   </div>
 
-  <!-- CENTER CENTER -->
+  <!-- DIALOGUE CENTER CENTER -->
   <div class="collapse container text-center" id="center-frame-center-aligned">
     <div class="row">
       <div class="three columns donothighlight">&nbsp;</div>
@@ -324,7 +438,7 @@
     </div>
   </div>
 
-  <!-- CENTER RIGHT -->
+  <!-- DIALOGUE CENTER RIGHT -->
   <div class="collapse container align-right" id="center-frame-right-aligned">
     <div class="row">
       <div class="three columns donothighlight">&nbsp;</div>
@@ -335,19 +449,15 @@
     </div>
   </div>
 
-  <script>
-
-  </script>
-
   <script src="core-controls.js"></script>
   <script src="core-dialogues.js"></script>
+  <script src="guessing-game.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6ZJNJK9ZG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-C6ZJNJK9ZG');
   </script>
 </body>
