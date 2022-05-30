@@ -50,6 +50,7 @@ function startGuessingGame() {
     $('#guessing-game-input').fadeIn();
     setInterval(decrementGuessesTicker, 33);
     function decrementGuessesTicker() {
+      
       guessesUI.innerHTML = `Remaining Guesses: ${guesses}`
     }
     gameInput.focus();
