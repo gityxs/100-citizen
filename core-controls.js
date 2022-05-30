@@ -9,7 +9,6 @@ let centerCenterDialogue = document.querySelector('#center-frame-center-aligned-
 let centerRightDialogue = document.querySelector('#center-frame-right-aligned-game-dialogue');
 let razeBarDialogue = document.querySelector('#raze-bar-frame-dialogue');
 
-
 const gameCashUI = document.querySelector('#game-cash');
 const totalGamesPlayedUI = document.querySelector('#total-games-played');
 const citizenEnergyUI = document.querySelector('#game-energy');
@@ -234,6 +233,12 @@ function updateCitizenLocation(location) {
   citizenLocation = localStorage.getItem('citizen_location');
 }
 
+function deleteAllCitizenSavedData() {
+  if (confirm('Are you sure you want to delete your saved game data?') == true) {
+    localStorage.clear();
+    refreshPage();
+  }
+}
 
 
 
