@@ -54,7 +54,7 @@ function startGuessingGame() {
       guessesUI.innerHTML = `Remaining Guesses: ${guesses}`
     }
     gameInput.focus();
-    // document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
+    document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
     guesses = 5;
   }, 500);
   systemMessageUI.innerHTML = ``
@@ -84,6 +84,7 @@ function startGuessingGame() {
 
       // IF Won
       else if (gameInput.value == randomNumber) {
+        playBackgroundMusic('victory.wav');
         $(gameInput).fadeOut();
         setTimeout(function () {
           $('#restart-btn').fadeIn();

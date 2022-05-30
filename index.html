@@ -355,7 +355,7 @@
 
 <body>
 
-  <!-- <a id="debug-answer"></a> -->
+  <a id="debug-answer"></a>
 
   <!-- GAME TITLE -->
   <div class="collapse container text-center" id="game-title-frame">
@@ -372,8 +372,8 @@
     <div class="row">
       <div class="three columns donothighlight">&nbsp;</div>
       <div class="seven columns donothighlight" style="margin-top: 10%">
-        <button id="continue-playing-btn" onclick="titleScreenStartUpGame();">CONTINUE PLAYING</button><br>
-        <button id="continue-playing-btn" onclick="deleteAllCitizenSavedData();">RESTART GAME</button>
+        <button id="continue-playing-btn" onclick="titleScreenStartUpGame();playBackgroundMusic('click.wav');">CONTINUE PLAYING</button><br>
+        <button id="continue-playing-btn" onclick="deleteAllCitizenSavedData();playBackgroundMusic('click.wav');">RESTART GAME</button>
       </div>
       <div class="two columns donothighlight">&nbsp;</div>
     </div>
@@ -403,8 +403,8 @@
           <button class="citizen-stats-wins" id="total-number-of-wins"></button>
           <button class="citizen-stats-losses" id="total-number-of-losses"></button><br>
           <button class="citizen-stats-wins" id="number-of-guesses"></button><br>
-          <button class="mt-5 guessing-game-start-button" id="start-btn" onclick="startGuessingGame();" style="margin-top: 5%">START (R)</button>
-          <button class="collapse mt-5 guessing-game-start-button" id="restart-btn" onclick="playAgain();" style="margin-top: 5%">PLAY AGAIN (R)</button>
+          <button class="mt-5 guessing-game-start-button" id="start-btn" onclick="startGuessingGame();playBackgroundMusic('click.wav');" style="margin-top: 5%">START (R)</button>
+          <button class="collapse mt-5 guessing-game-start-button" id="restart-btn" onclick="playAgain();playBackgroundMusic('click.wav');" style="margin-top: 5%">PLAY AGAIN (R)</button>
           <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100" style="margin-top: 5%"><br>
           <h5 id="system-message" style="margin-top: 10%"></h5>
         </div>

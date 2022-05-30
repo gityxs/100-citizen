@@ -87,7 +87,6 @@ function gameStoryProgressTicker() {
 }
 
 function titleScreenStartUpGame() {
-  // playBackgroundMusic('rain-and-thunder.mp3');
   fadeOut('#game-title-frame')
   fadeOut('#continue-playing-container')
   fadeOut('#continue-playing-btn')
@@ -241,10 +240,10 @@ function deleteAllCitizenSavedData() {
   }
 }
 
-// function playBackgroundMusic(title) {
-//   let audio = new Audio(title);
-//   audio.play();
-// }
+function playBackgroundMusic(title) {
+  let audio = new Audio(title);
+  audio.play();
+}
 
 
 /**
