@@ -325,7 +325,14 @@
     .citizen-stats-losses {
       border: none;
       font-size: 2rem;
-      color: #ef9a9a;
+      color: #e57373;
+      cursor: default;
+    }
+
+    .citizen-stats-guesses {
+      border: none;
+      font-size: 2rem;
+      color: #eeeeee;
       cursor: default;
     }
 
@@ -402,7 +409,7 @@
           <button id="total-games-played" hidden></button>
           <button class="citizen-stats-wins" id="total-number-of-wins"></button>
           <button class="citizen-stats-losses" id="total-number-of-losses"></button><br>
-          <button class="citizen-stats-wins" id="number-of-guesses"></button><br>
+          <button class="citizen-stats-guesses" id="number-of-guesses"></button><br>
           <button class="mt-5 guessing-game-start-button" id="start-btn" onclick="startGuessingGame();playBackgroundMusic('click.wav');" style="margin-top: 5%">START (R)</button>
           <button class="collapse mt-5 guessing-game-start-button" id="restart-btn" onclick="playAgain();playBackgroundMusic('click.wav');" style="margin-top: 5%">PLAY AGAIN (R)</button>
           <input class="collapse mt-4" id="guessing-game-input" type="number" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100" style="margin-top: 5%"><br>
