@@ -90,6 +90,7 @@ function titleScreenStartUpGame() {
   fadeOut('#game-title-frame')
   fadeOut('#continue-playing-container')
   fadeOut('#continue-playing-btn')
+  fadeOut('#reset-game-data-btn')
   updateGameStatus();
   initializeEnergyStat();
   updateCitizenLocation('Raze');

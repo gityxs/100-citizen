@@ -54,7 +54,7 @@ function startGuessingGame() {
       guessesUI.innerHTML = `Remaining Guesses: ${guesses}`
     }
     gameInput.focus();
-    // document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
+    document.querySelector('#debug-answer').innerHTML = `Debug Answer: ${randomNumber}`;
     guesses = 5;
   }, 500);
   systemMessageUI.innerHTML = ``
@@ -65,19 +65,19 @@ function startGuessingGame() {
       if (gameInput.value - randomNumber >= 30) {
         systemMessageUI.innerHTML = `<a>[${gameInput.value.padStart(3, '0')}]</a> Your guess is too high! <br> ${systemMessageUI.innerHTML}`;
         guesses -= 1;
-      } else if (gameInput.value - randomNumber >= 16) {
+      } else if (gameInput.value - randomNumber > 10) {
         systemMessageUI.innerHTML = `<a>[${gameInput.value.padStart(3, '0')}]</a> Your guess is high. <br> ${systemMessageUI.innerHTML}`;
         guesses -= 1;
-      } else if (gameInput.value - randomNumber >= 1 && gameInput.value - randomNumber < 16) {
+      } else if (gameInput.value - randomNumber >= 1 && gameInput.value - randomNumber <= 10) {
         systemMessageUI.innerHTML = `<a>[${gameInput.value.padStart(3, '0')}]</a> Your guess is a bit higher. <br> ${systemMessageUI.innerHTML}`;
         guesses -= 1;
       } else if (gameInput.value - randomNumber <= -30) {
         systemMessageUI.innerHTML = `<a>[${gameInput.value.padStart(3, '0')}]</a> Your guess is too low! <br> ${systemMessageUI.innerHTML}`;
         guesses -= 1;
-      } else if (gameInput.value - randomNumber <= -16) {
+      } else if (gameInput.value - randomNumber <= -11) {
         systemMessageUI.innerHTML = `<a>[${gameInput.value.padStart(3, '0')}]</a> Your guess is low. <br> ${systemMessageUI.innerHTML}`;
         guesses -= 1;
-      } else if (gameInput.value - randomNumber <= -1 && gameInput.value - randomNumber < 15) {
+      } else if (gameInput.value - randomNumber <= -1 && gameInput.value - randomNumber < 10) {
         systemMessageUI.innerHTML = `<a>[${gameInput.value.padStart(3, '0')}]</a> Your guess is a bit lower. <br> ${systemMessageUI.innerHTML}`;
         guesses -= 1;
       }
