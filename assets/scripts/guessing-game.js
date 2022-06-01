@@ -95,27 +95,27 @@ function startGuessingGame() {
         if (guesses == 4) {
           localStorage.setItem('total_game_cash', localCash += (localWins + 1) * 5);
           localStorage.setItem('total_games_played', localTotalGamesPlayed += 1);
-          systemMessageUI.innerHTML = `You earned $<a>${(localWins + 1) * 5}</a>. <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won in first try! Unbelievable! 😱 <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $ <a>${(localWins + 1) * 5}</a> <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won in first try! Unbelievable! 😱 <br> ${systemMessageUI.innerHTML}`
           incrementGameWins();
         } else if (guesses == 3) {
           localStorage.setItem('total_game_cash', localCash += (localWins + 1) * 4);
           localStorage.setItem('total_games_played', localTotalGamesPlayed += 1);
-          systemMessageUI.innerHTML = `You earned $<a>${(localWins + 1) * 4}</a>. <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won in second try! Excellent! 🤩 <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $ <a>${(localWins + 1) * 4}</a> <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won in second try! Excellent! 🤩 <br> ${systemMessageUI.innerHTML}`
           incrementGameWins();
         } else if (guesses == 2) {
           localStorage.setItem('total_game_cash', localCash += (localWins + 1) * 3);
           localStorage.setItem('total_games_played', localTotalGamesPlayed += 1);
-          systemMessageUI.innerHTML = `You earned $<a>${(localWins + 1) * 3}</a>. <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won in third try! Way to go! 🥳 <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $ <a>${(localWins + 1) * 3}</a> <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won in third try! Way to go! 🥳 <br> ${systemMessageUI.innerHTML}`
           incrementGameWins();
         } else if (guesses == 1) {
           localStorage.setItem('total_game_cash', localCash += 1 + localWins);
           localStorage.setItem('total_games_played', localTotalGamesPlayed += 1);
-          systemMessageUI.innerHTML = `You earned $<a>${localWins + 1}</a>. <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $ <a>${localWins + 1}</a> <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won! 🎁 Great job! <br> ${systemMessageUI.innerHTML}`
           incrementGameWins();
         } else if (guesses == 0) {
           localStorage.setItem('total_game_cash', localCash += 1 + localWins);
           localStorage.setItem('total_games_played', localTotalGamesPlayed += 1);
-          systemMessageUI.innerHTML = `You earned $<a>${localWins + 1}</a>. <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won! That's a close one! 😮‍💨 <br> ${systemMessageUI.innerHTML}`
+          systemMessageUI.innerHTML = `You earned $ <a>${localWins + 1}</a> <br> <a>[${gameInput.value.padStart(3, '0')}]</a> You won! That's a close one! 😮‍💨 <br> ${systemMessageUI.innerHTML}`
           incrementGameWins();
         }
       }
@@ -123,7 +123,7 @@ function startGuessingGame() {
       // IF Lost
       if (gameInput.value != randomNumber && guesses == 0) {
         $(gameInput).fadeOut();
-        systemMessageUI.innerHTML = `Game over. 😭 <br><br> The secret number is <a>[${randomNumber.toString().padStart(3, '0')}].</a><br> ${systemMessageUI.innerHTML}`
+        systemMessageUI.innerHTML = `Game over. 😭 <br> The secret number is <a>[${randomNumber.toString().padStart(3, '0')}].</a><br> ${systemMessageUI.innerHTML}`
         gameOngoing = false;
         localStorage.setItem('total_game_losses', localLosses += 1);
         localStorage.setItem('total_games_played', localTotalGamesPlayed += 1);
