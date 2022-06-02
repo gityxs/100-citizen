@@ -256,13 +256,13 @@ body {
 
 input[type], input[type]:focus {
   background-color: #121212;
-  color: #fff;
+  color: #ccc;
   opacity: var(--high-em);
 }
 
 option, select {
   background-color: #121212 !important;
-  color: #fff !important;
+  color: #ccc !important;
   opacity: var(--high-em) !important;
 }
 
