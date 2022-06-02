@@ -266,8 +266,8 @@ option, select {
   opacity: var(--high-em) !important;
 }
 
-.form-control:focus, .form-select:focus {
-  box-shadow: none;
+.form-control:focus, .form-control:active, .form-select:focus {
+  box-shadow: none !important;
 }
 
 .blue-text {
