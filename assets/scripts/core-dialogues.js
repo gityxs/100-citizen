@@ -11,31 +11,16 @@ borderPatrolDialogue1 =
       <h6><span class="blue-text">(Officer Saeki)</span></h6>
       <p class="high-em">Hi, my name is <span class="blue-text">Officer Saeki</span> and welcome to <span class="blue-text">SáruCity</span>. Can I see your papers and identification?</p>
       <p class="high-em">Also, here's a form you have to sign.</p>
+
+      <form>
       <div class="mb-3">
-    <label class="high-em" for="citizen-username-input" class="form-label">Citizen Name</label>
-    <input class="form-control" id="citizen-username-input" type="text" value="Zero" autocomplete="off" spellcheck="false" aria-describedby="citizenUsernameInput">
-  </div>
-  <div class="mb-3">
-    <label class="high-em" for="citizen-pronoun-input" class="form-label">Citizen Identifier</label>
-    <select class="form-select" id="citizen-pronoun-input" aria-label="citizenPronounInput">
-      <option value="He/Him">He/Him</option>
-      <option value="She/Her">She/Her</option>
-      <option value="They/Them">They/Them</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="high-em" for="citizen-preferred-address-input" class="form-label">How you prefer to be called?</label>
-    <select class="form-select" id="citizen-preferred-address-input" aria-label="citizenPronounInput">
-      <option value="Bro">Bro</option>
-      <option value="Bruh">Bruh</option>
-      <option value="Boy">Boy</option>
-      <option value="Dude">Dude</option>
-      <option value="Girl">Girl</option>
-      <option value="Gurl">Gurl</option>
-      <option value="Gal">Gal</option>
-      <option value="Mate">Mate</option>
-    </select>
-  </div>
+        <label class="high-em" for="citizen-username-input" class="form-label">Citizen Name</label>
+        <input class="form-control" id="citizen-username-input" type="text" value="Zero" autocomplete="off" spellcheck="false" aria-describedby="citizenUsernameInput">
+      </div>
+    
+    </form>
+
+
     </div>
   </div>
   <button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification', true);saveUserInputValue('citizen_username', '#citizen-username-input');saveUserInputValue('citizen_identifier', '#citizen-pronoun-input');saveUserInputValue('citizen_preferred_address', '#citizen-preferred-address-input');fadeOut('#border-patrol-dialogue-1');refreshPage();">Sure, here it is, officer</button>
