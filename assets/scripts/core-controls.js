@@ -1,13 +1,13 @@
 const gameTitleFrame = document.querySelector('#game-title-frame');
-const centerLeftFrame = document.querySelector('#center-frame-left-aligned');
-const centerCenterFrame = document.querySelector('#center-frame-center-aligned');
-const centerRightFrame = document.querySelector('#center-frame-right-aligned');
+const leftFrame = document.querySelector('#left-main-frame');
+const centerFrame = document.querySelector('#center-main-frame');
 const razeBarFrame = document.querySelector('#raze-bar-frame');
 
-let centerLeftDialogue = document.querySelector('#center-frame-left-aligned-game-dialogue');
-let centerCenterDialogue = document.querySelector('#center-frame-center-aligned-game-dialogue');
-let centerRightDialogue = document.querySelector('#center-frame-right-aligned-game-dialogue');
-let razeBarDialogue = document.querySelector('#raze-bar-frame-dialogue');
+let leftDialogueBox = document.querySelector('#left-frame-dialogue');
+let centerDialogueBox = document.querySelector('#center-frame-dialogue');
+let razeBarDialogueBox = document.querySelector('#raze-bar-frame-dialogue');
+
+let currentLocationUI = document.querySelector('#citizen-location-ui');
 
 const gameCashUI = document.querySelector('#game-cash');
 const totalGamesPlayedUI = document.querySelector('#total-games-played');
@@ -31,68 +31,83 @@ window.onload = function () {
 
 function gameStoryProgressTicker() {
 
-  // After the first registration scene at the Border Patrol, load the Title Screen
-  if (localStorage.getItem('family_reunited') == 'true' && gameStatus != 'Ongoing') {
-    setTimeout(function () {
-      fadeInSlow('#game-title-frame');
-      fadeInSlow('#continue-playing-container');
-    }, 500);
-  }
-
   if (localStorage.getItem('welcome_done') == null) {
-    fadeInSlow(centerCenterFrame);
-    centerCenterDialogue.innerHTML = starterDialogue;
+    centerFrame.style = 'margin-top: 25vh'
+    $(centerFrame).fadeIn(2000);
+    centerDialogueBox.innerHTML = starterDialogue;
   }
 
   if (localStorage.getItem('show_identification') == null && localStorage.getItem('welcome_done') == 'true') {
-    fadeInSlow(centerLeftFrame);
-    centerLeftDialogue.innerHTML = borderPatrolDialogue1;
+    $('#center-main-frame').fadeOut(100);
+    centerDialogueBox.innerHTML = ``;
+    currentLocationUI.innerHTML = `<a style="color: #bcaaa4">SC Border Patrol Office</a>`;
+    leftFrame.style = 'margin-top: 10vh'
+    $(leftFrame).fadeIn(500);
+    leftDialogueBox.innerHTML = borderPatrolDialogue1;
   }
 
   if (localStorage.getItem('show_identification_2') == null && localStorage.getItem('show_identification') == 'true') {
-    fadeInSlow(centerLeftFrame);
-    centerLeftDialogue.innerHTML = borderPatrolDialogue2;
+    currentLocationUI.innerHTML = `<a style="color: #bcaaa4">SC Border Patrol Office</a>`;
+    leftFrame.style = 'margin-top: 10vh'
+    $(leftFrame).fadeIn(500);
+    leftDialogueBox.innerHTML = borderPatrolDialogue2;
   }
 
   if (localStorage.getItem('family_reunited') == null && localStorage.getItem('show_identification_2') == 'true') {
     setTimeout(function () {
-      fadeInSlow(centerLeftFrame);
-      centerLeftDialogue.innerHTML = borderPatrolDialogue3;
+      currentLocationUI.innerHTML = `<a style="color: #bcaaa4">Outside the SCBP Office</a>`;
+      leftFrame.style = 'margin-top: 10vh'
+      $(leftFrame).fadeIn(500);
+      leftDialogueBox.innerHTML = borderPatrolDialogue3;
     }, 500);
   }
 
-  // From hereon, it should require gameStatus == 'Ongoing', because the title screen should be the one visible to the player on pageload
+  // Title Screen
+  if (localStorage.getItem('family_reunited') == 'true' && gameStatus != 'Ongoing') {
+    leftDialogueBox.innerHTML = ``
+    currentLocationUI.innerHTML = ``;
+    $('#game-title-frame').fadeIn(3000);
+    $('#continue-playing-container').fadeIn(3000);
+  }
+
+  // Show Citizen Stats
   if (gameStatus == 'Ongoing' && localStorage.getItem('family_reunited') == 'true') {
     setTimeout(function () {
-      fadeInSlow('#citizen-stats-display');
+      document.getElementById("citizen-stats-display").classList.remove("collapse");
     }, 500);
   }
-
+  // RAZE bar
   if (localStorage.getItem('raze_tutorial_complete') == null && localStorage.getItem('family_reunited') == 'true' && gameStatus == 'Ongoing') {
     setTimeout(function () {
-      fadeInSlow('#raze-bar-frame');
-      fadeInSlow('#raze-prologue-tutorial');
-      razeBarDialogue.innerHTML = razeBarPrologueTutorial;
+      currentLocationUI.innerHTML = `<a style="color: var(--bright-pink);">RAZE</a>`;
+      $('#raze-bar-frame').fadeIn();
+      $('#raze-prologue-tutorial').fadeIn();
+      razeBarDialogueBox.innerHTML = razeBarPrologueTutorial;
     }, 600);
   }
 
   if (localStorage.getItem('raze_tutorial_complete') == 'true' && gameStatus == 'Ongoing') {
     setTimeout(function () {
-      fadeInSlow('#raze-bar-frame');
-      fadeInSlow('#guessing-game-container');
-      // razeBarDialogue.innerHTML = razeBarPrologueTutorial;
+      currentLocationUI.innerHTML = `<a style="color: var(--bright-pink);">RAZE</a>`;
+      document.querySelector('#raze-bar-frame').classList.add("text-center");
+      $('#raze-bar-frame').fadeIn();
+      $('#guessing-game-container').fadeIn();
     }, 600);
   }
 
 }
 
 function titleScreenStartUpGame() {
-  fadeOut('#game-title-frame')
-  fadeOut('#continue-playing-container')
-  fadeOut('#continue-playing-btn')
-  fadeOut('#reset-game-data-btn')
+  setTimeout(function () {
+    document.querySelector('#game-title-frame').innerHTML = ``;
+  }, 600);
+  $('#game-title-frame').fadeOut(100);
+  $('#continue-playing-container').fadeOut(100);
+  $('.game-title').fadeOut(100);
+  $('.author-title').fadeOut(100);
+  $('#continue-playing-btn').fadeOut(100);
+  $('#reset-game-data-btn').fadeOut(100);
   updateGameStatus();
-  initializeEnergyStat();
   updateCitizenLocation('Raze');
   gameStoryProgressTicker();
 }
@@ -118,24 +133,9 @@ if (localStorage.getItem('citizen_identifier') == null) {
   }
 }
 
-if (localStorage.getItem('citizen_preferred_callsign') == null) {
-  localStorage.setItem('citizen_preferred_callsign', 'Bro');
-} else { citizenCallsign = localStorage.getItem('citizen_preferred_callsign').toLowerCase(); }
-
-//ENERGY STAT
-function initializeEnergyStat() {
-  if (localStorage.getItem('citizen_energy') === null) {
-    localStorage.setItem('citizen_energy', 50);
-    citizenEnergyUI.innerHTML = `⚡50`
-  }
-  else {
-    setInterval(updateGameEnergyTicker, 33);
-    function updateGameEnergyTicker() {
-      console.log(localStorage.getItem('citizen_energy'));
-      citizenEnergyUI.innerHTML = `⚡${localStorage.getItem('citizen_energy')}`
-    }
-  }
-}
+if (localStorage.getItem('citizen_preferred_address') == null) {
+  localStorage.setItem('citizen_preferred_address', 'Bro');
+} else { citizenCallsign = localStorage.getItem('citizen_preferred_address').toLowerCase(); }
 
 function initializeCharacterStats() {
   //TOTAL NUMBER OF GUESSING GAMES PLAYED STAT
@@ -153,36 +153,49 @@ function initializeCharacterStats() {
   //CASH STAT
   if (localStorage.getItem('total_game_cash') === null) {
     localStorage.setItem('total_game_cash', 0);
-    gameCashUI.innerHTML = `$ 0`
+    gameCashUI.innerHTML = `💲0`
   }
   else {
     setInterval(updateGameCashTicker, 33);
     function updateGameCashTicker() {
-      gameCashUI.innerHTML = `$ ${localStorage.getItem('total_game_cash').toLocaleString()}`
+      gameCashUI.innerHTML = `💲${parseInt(localStorage.getItem('total_game_cash')).toLocaleString()}`
+    }
+  }
+
+  //ENERGY STAT
+  if (localStorage.getItem('citizen_energy') === null) {
+    localStorage.setItem('citizen_energy', 50);
+    citizenEnergyUI.innerHTML = `⚡50`
+  }
+  else {
+    setInterval(updateGameEnergyTicker, 33);
+    function updateGameEnergyTicker() {
+      console.log(localStorage.getItem('citizen_energy'));
+      citizenEnergyUI.innerHTML = `⚡${localStorage.getItem('citizen_energy')}`
     }
   }
 
   // WINS STAT
   if (localStorage.getItem('total_game_wins') === null) {
     localStorage.setItem('total_game_wins', 0);
-    totalWinsUI.innerHTML = `WINS: 0`
+    totalWinsUI.innerHTML = `0 <br> WIN`
   }
   else {
     setInterval(updateGameWinsTicker, 33);
     function updateGameWinsTicker() {
-      totalWinsUI.innerHTML = `WINS: ${localStorage.getItem('total_game_wins').toLocaleString()}`
+      totalWinsUI.innerHTML = `${localStorage.getItem('total_game_wins').toLocaleString()} <br> WIN`
     }
   }
 
   // LOSSES STAT
   if (localStorage.getItem('total_game_losses') === null) {
     localStorage.setItem('total_game_losses', 0);
-    totalLossesUI.innerHTML = `LOSSES: 0`
+    totalLossesUI.innerHTML = `0 <br> LOSS`
   }
   else {
     setInterval(updateGameLossesTicker, 33);
     function updateGameLossesTicker() {
-      totalLossesUI.innerHTML = `LOSSES: ${localStorage.getItem('total_game_losses').toLocaleString()}`
+      totalLossesUI.innerHTML = `${localStorage.getItem('total_game_losses').toLocaleString()} <br> LOSS`
     }
   }
 
@@ -226,7 +239,6 @@ function saveUserInputValue(key, value) {
 
 function updateGameStatus() {
   gameStatus = 'Ongoing';
-  console.log(gameStatus);
 }
 
 function updateCitizenLocation(location) {

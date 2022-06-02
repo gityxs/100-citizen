@@ -1,188 +1,201 @@
-starterDialogue = `<h2 class="high-em">Welcome to SáruCity!</h2>
-<p class="mid-em">On behalf of the proud citizens of <a>Sáru</a>, I, <a>Edward Rush</a>, the newly elected mayor, welcome you to our beautiful city. The place where people from all walks of life find their happiness and where all dreams come true.</p>
+starterDialogue =
+  `<h1 class="high-em">Welcome to SáruCity</h1>
+<p class="mid-em">On behalf of the proud citizens of <span class="blue-text">Sáru</span>, I, <span class="blue-text">Edward Rush</span>, the newly elected mayor, welcome you to our beautiful city. The place where people from all walks of life find their happiness and where all dreams come true.</p>
 <p class="mid-em">Come and be a citizen today!</p>
-<button onclick="setProgressLocalStorage('welcome_done', true);fadeOut('#center-frame-center-aligned');gameStoryProgressTicker();updateCitizenLocation('SCBPO');fadeInSlow('#center-frame-left-aligned');">START GAME</button>`;
+<button class="mt-5 default-light-btn-lg" id="start-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('welcome_done', true);gameStoryProgressTicker();updateCitizenLocation('SCBPO');">START NEW GAME</button><br>`;
 
-borderPatrolDialogue1 = `<div class="blue-location-card" id="border-patrol-dialogue-1">
-<h5 class="high-em text-center"><a>SC Border Patrol Office</a></h5>
-<div><a>(Officer Saeki)</a>
-  <p class="mid-em">Hi, my name is <a>Officer Saeki</a> and welcome to <a>SáruCity</a>... if you can please show me your papers and identification?</p>
-  <p class="mid-em">Also, here's a form you have to sign...</p>
-  <label class="mid-em" for="citizen-username-input">Your name:</label>
-  <input class="u-full-width" id="citizen-username-input" type="text" autocomplete="off" spellcheck="false" placeholder="Name">
-  <div class="row">
-    <div class="six columns">
-      <label class="mid-em" for="citizen-pronoun-input">Identifier:</label>
-      <select class="u-full-width" id="citizen-pronoun-input">
-        <option value="He/Him">He/Him</option>
-        <option value="She/Her">She/Her</option>
-        <option value="They/Them">They/Them</option>
-      </select>
+borderPatrolDialogue1 =
+  `<div id="border-patrol-dialogue-1">
+  <div class="card border-0">
+    <div class="card-body npc-dialogue-card">
+      <h6><span class="blue-text">(Officer Saeki)</span></h6>
+      <p class="high-em">Hi, my name is <span class="blue-text">Officer Saeki</span> and welcome to <span class="blue-text">SáruCity</span>. Can I see your papers and identification?</p>
+      <p class="high-em">Also, here's a form you have to sign.</p>
+      <form>
+        <div class="mb-3">
+          <label class="high-em" for="citizen-username-input" class="form-label">Citizen Name</label>
+          <input class="form-control" id="citizen-username-input" type="text" value="Zero" autocomplete="off" spellcheck="false" aria-describedby="citizenUsernameInput">
+        </div>
+        <div class="mb-3">
+          <label class="high-em" for="citizen-pronoun-input" class="form-label">Citizen Identifier</label>
+          <select class="form-select" id="citizen-pronoun-input" aria-label="citizenPronounInput">
+            <option value="He/Him">He/Him</option>
+            <option value="She/Her">She/Her</option>
+            <option value="They/Them">They/Them</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="high-em" for="citizen-preferred-address-input" class="form-label">How you prefer to be called?</label>
+          <select class="form-select" id="citizen-preferred-address-input" aria-label="citizenPronounInput">
+            <option value="Bro">Bro</option>
+            <option value="Bruh">Bruh</option>
+            <option value="Boy">Boy</option>
+            <option value="Dude">Dude</option>
+            <option value="Girl">Girl</option>
+            <option value="Gurl">Gurl</option>
+            <option value="Gal">Gal</option>
+            <option value="Mate">Mate</option>
+          </select>
+        </div>
+      </form>
     </div>
-    <div class="six columns">
-      <label class="mid-em" for="citizen-preferred-callsign-input">How you prefer to be called?</label>
-      <select class="u-full-width" id="citizen-preferred-callsign-input">
-        <option value="Bro">Bro</option>
-        <option value="Bruh">Bruh</option>
-        <option value="Boy">Boy</option>
-        <option value="Girl">Girl</option>
-        <option value="Gurl">Gurl</option>
-        <option value="Gal">Gal</option>
-        <option value="Man">Man</option>
-      </select>
+  </div>
+  <button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification', true);saveUserInputValue('citizen_username', '#citizen-username-input');saveUserInputValue('citizen_identifier', '#citizen-pronoun-input');saveUserInputValue('citizen_preferred_address', '#citizen-preferred-address-input');fadeOut('#border-patrol-dialogue-1');refreshPage();">Sure, here it is, officer</button>
+</div>`
+
+borderPatrolDialogue2 =
+  `<div id="border-patrol-dialogue-1">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(Officer Saeki)</span></h6>
+    <p class="mid-em">Alright, <span class="blue-text">${citizenUsername}</span>, your profile looks good to me... Here's your papers. You're good to go. The exit is that way... Have a good day!</p>
+  </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#left-main-frame');">Thank you, officer</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#left-main-frame');">Okay</button>
+</div>`
+
+borderPatrolDialogue3 =
+  `<div id="border-patrol-dialogue-3">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Hey, <span class="blue-text">${citizenUsername}</span>, ${citizenCallsign}, been waiting for you forever... and look at you, you still look ugly as hell!</p>
+  </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#border-patrol-dialogue-3');fadeInNormalDelay('#border-patrol-dialogue-4');">I missed you too, ${siblingShort}</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#border-patrol-dialogue-3');fadeInNormalDelay('#border-patrol-dialogue-4');">And you're not?</button>
+</div>
+
+<div class="collapse" id="border-patrol-dialogue-4">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Nah, I'm just kidding, I missed you, ${citizenCallsign}. It's been really tough here without family... <br><br> You can't trust anyone in this city. Everyone seems to be in a race, like rats...</p>
+  </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#border-patrol-dialogue-4');fadeInNormalDelay('#border-patrol-dialogue-5');">Is it really that bad?</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#border-patrol-dialogue-4');fadeInNormalDelay('#border-patrol-dialogue-5');">*sigh*</button>
+</div>
+
+<div class="collapse" id="border-patrol-dialogue-5">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">All I can tell you is that the situation here has spiralled out of control since the new mayor got elected. But enough with the sad talk... you just got here after all. Let's go eat something. I know a decent bar...</p>
+    <p class="mid-em">You can sleep in the car while I drive, you must be tired...</p>
+  </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('family_reunited', true);gameStoryProgressTicker();fadeOut('#left-main-frame');">Thanks ${citizenCallsign}, really appreciate it.</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('family_reunited', true);gameStoryProgressTicker();fadeOut('#left-main-frame');">Okay, let's go.</button>
+</div>`
+
+razeBarPrologueTutorial =
+  `<div id="raze-prologue-tutorial">
+  <div id="raze-bar-prologue-1">
+  <div class="card border-0">
+    <div class="card-body npc-dialogue-card">
+      <h6><span class="blue-text">(${sibling})</span></h6>
+      <p class="mid-em">Alright ${citizenCallsign}, we're here. This is the <span class="blue-text">Raze</span>, it's the best bar in town. Let's go inside, I'll show you something.</p>
     </div>
   </div>
-  <br><br>
-  <hr>
-  <div class="align-right"><button id="confirm-citizen-identity-btn" onclick="setProgressLocalStorage('show_identification', true);saveUserInputValue('citizen_username', '#citizen-username-input');saveUserInputValue('citizen_identifier', '#citizen-pronoun-input');saveUserInputValue('citizen_preferred_callsign', '#citizen-preferred-callsign-input');fadeOut('#border-patrol-dialogue-1');refreshPage();">Sure, here it is, officer</button></div>
+  <button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-1');fadeInNormalDelay('#raze-bar-prologue-2');">Follow ${sibling}</button>
 </div>
-</div>`
 
-borderPatrolDialogue2 = `<div class="blue-location-card">
-<h5 class="high-em text-center"><a>SC Border Patrol Office</a></h5>
-<div><a>(Officer Saeki)</a>
-  <p class="mid-em">Alright, <a>${citizenUsername}</a>, your profile looks good to me... Here's your papers. You can go now, the exit's that way... Have a good day!</p>
-  <br><br>
-  <hr>
-  <div class="align-right"><button onclick="setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#center-frame-left-aligned');">Okay</button><button class="ms-3" onclick="setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#center-frame-left-aligned');">Thank you, officer</button>
-    <button class="ms-3" onclick="setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#center-frame-left-aligned');">You too, officer</button>
+<div class="collapse" id="raze-bar-prologue-2">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Look, you see those gaming tables over there?</p>
   </div>
 </div>
-</div>`
-
-borderPatrolDialogue3 = `<div class="blue-location-card">
-<h5 class="high-em text-center"><a>Outside the SCBP Office</a></h5>
-<div id="border-patrol-dialogue-3"><a>(${sibling})</a>
-  <p class="mid-em">Hey, <a>${citizenUsername}</a>, ${citizenCallsign}, been waiting for you forever... and look at you, you still look ugly as hell!</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#border-patrol-dialogue-3');fadeInNormalDelay('#border-patrol-dialogue-4');">And you're not?</button><br>
-    <button class="ms-3" onclick="fadeOut('#border-patrol-dialogue-3');fadeInNormalDelay('#border-patrol-dialogue-4');">I missed you too, ${siblingShort}</button><br>
-    <button class="ms-3" onclick="fadeOut('#border-patrol-dialogue-3');fadeInNormalDelay('#border-patrol-dialogue-4');">Thanks for coming</button>
-  </div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-2');fadeInNormalDelay('#raze-bar-prologue-3');">What's going on?</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-2');fadeInNormalDelay('#raze-bar-prologue-3');">Yeah...</button>
 </div>
 
-<div class="collapse" id="border-patrol-dialogue-4"><a>(${sibling})</a>
-  <p class="mid-em">Nah, I'm just kidding, I missed you, <a>${citizenUsername}</a>. It's been really tough to not have your family here... You can't trust anyone in this city, ${citizenCallsign}. Everyone seems to be in a race, like rats... well to be honest, I'm part of that list too. But what can we do? We're all just trying to survive... This city... this town will really try to suck you dry... they'll suck your brain, they'll suck your breath... And this new mayor.. *sigh*</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#border-patrol-dialogue-4');fadeInNormalDelay('#border-patrol-dialogue-5');">*sigh*</button><br>
-    <button class="ms-3" onclick="fadeOut('#border-patrol-dialogue-4');fadeInNormalDelay('#border-patrol-dialogue-5');">I know ${citizenCallsign}</button><br>
-    <button class="ms-3" onclick="fadeOut('#border-patrol-dialogue-4');fadeInNormalDelay('#border-patrol-dialogue-5');">Is it really that bad?</button>
+<div class="collapse" id="raze-bar-prologue-3">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">That's the craze 'round here. A real money-making machine... that is if you're smart enough to crack it. And that's why you see a lot of people coming and going. <br><br> What d'you think?</p>
   </div>
 </div>
-
-<div class="collapse" id="border-patrol-dialogue-5"><a>(${sibling})</a>
-  <p class="mid-em">All I can tell you is that the situation here has become way out of control... But enough with the sad talk... you just got here after all. Let's go someplace fun. I know a decent bar... why don't we go there for a bit, huh?</p>
-  <p class="mid-em">You can sleep in the car while I drive, you must be tired... and it's gonna be a looong drive.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="setProgressLocalStorage('family_reunited', true);gameStoryProgressTicker();fadeOut('#center-frame-left-aligned');">Okay, let's go.</button><br>
-    <button class="ms-3" onclick="setProgressLocalStorage('family_reunited', true);gameStoryProgressTicker();fadeOut('#center-frame-left-aligned');">Thanks ${citizenCallsign}, really appreciate it.</button><br>
-  </div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-3');fadeInNormalDelay('#raze-bar-prologue-4-a');">How do I play it?</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-3');fadeInNormalDelay('#raze-bar-prologue-4-b');">I don't really gamble, ${citizenCallsign}.</button>
 </div>
 
-</div>`
-
-razeBarPrologueTutorial = `<div class="blue-location-card" id="raze-prologue-tutorial">
-<h4 class="text-center"><a style="color: var(--bright-pink);">Raze</a></h4>
-<div id="raze-bar-prologue-1"><a>(${sibling})</a>
-  <p class="mid-em">Come here ${citizenCallsign}, I'll show you something.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-1');fadeInNormalDelay('#raze-bar-prologue-2');">Continue...</button>
+<div class="collapse" id="raze-bar-prologue-4-a">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Okay, so the mechanics is simple... you try to guess the <span class="blue-text">secret number</span> from <span class="blue-text">0</span> to <span class="blue-text">100</span> in just <span class="blue-text">5 tries</span>. If you can guess it correctly, you win, cash straight to your pocket.</p>
   </div>
 </div>
-
-<div class="collapse" id="raze-bar-prologue-2"><a>(${sibling})</a>
-  <p class="mid-em">You see that table over there?</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-2');fadeInNormalDelay('#raze-bar-prologue-3');">Yeah..</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-2');fadeInNormalDelay('#raze-bar-prologue-3');">What's that?</button>
-  </div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-4-a');fadeInNormalDelay('#raze-bar-prologue-5');">That sounds easy!</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-4-a');fadeInNormalDelay('#raze-bar-prologue-5');">And if I lose?</button>
 </div>
 
-<div class="collapse" id="raze-bar-prologue-3"><a>(${sibling})</a>
-  <p class="mid-em">That's the craze 'round here. A real money-maker... that is if you're smart enough to crack it.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-3');fadeInNormalDelay('#raze-bar-prologue-4-a');">How do I play it?</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-3');fadeInNormalDelay('#raze-bar-prologue-4-b');">I don't know ${citizenCallsign}..I don't like gambling</button>
+<div class="collapse" id="raze-bar-prologue-4-b">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Well, I understand you. I was just like you.</p>
+    <p class="mid-em">But then I was so broke I decided to give it a try... It did help me pay the bills and some of my student loans...</p>
   </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-4-b');fadeInNormalDelay('#raze-bar-prologue-4-a');">Okay, tell me about it.</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-4-b');fadeInNormalDelay('#raze-bar-prologue-4-a');">Now I'm curious.</button>
 </div>
 
-<div class="collapse" id="raze-bar-prologue-4-a"><a>(${sibling})</a>
-  <p class="mid-em">The mechanics are simple... you try to guess the <a>secret number</a> from <a>0</a> to <a>100</a> in just <a>5 tries</a>. If you guess it right, you win, cash straight to your pocket.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-4-a');fadeInNormalDelay('#raze-bar-prologue-5');">That sounds easy!</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-4-a');fadeInNormalDelay('#raze-bar-prologue-5');">And if I lose?</button>
+<div class="collapse" id="raze-bar-prologue-5">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">To play it, you have to pay a dollar. If you lose, dollar's gone, and if you win, you earn one back.</p>
   </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Hmm...</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Doesn't sound easy money.</button>
 </div>
 
-<div class="collapse" id="raze-bar-prologue-4-b"><a>(${sibling})</a>
-  <p class="mid-em">Well, I understand you. But tell you what, look around, everyone in here's broke, barely making it. That includes us... But this game gives us hope... it gives us a chance.</p>
-  <p class="mid-em">Why don't you give it a try? Maybe if you're good at it you won't have to work anymore in this godforsaken city...</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-4-b');fadeInNormalDelay('#raze-bar-prologue-4-a');">That makes sense</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-4-b');fadeInNormalDelay('#raze-bar-prologue-4-a');">Okay, tell me about it.</button>
+<div class="collapse" id="raze-bar-prologue-6">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Okay... so here's the good part. Everytime you win, it's being recorded in their system... and that will add up to your winnings. That means, if you've won 3 times before, and you win again, you'll be getting 4 dollars instead of 1 and so on... and it doesn't have to be a win streak.</p>
   </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-6');fadeInNormalDelay('#raze-bar-prologue-7');">Anything else I should know?</button>
 </div>
 
-<div class="collapse" id="raze-bar-prologue-5"><a>(${sibling})</a>
-  <p class="mid-em">Right, so to play it, you have to pay a dollar. If you lose, dollar's gone, and if you win, you earn one back.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Wait... that doesn't make any sense.</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-5');fadeInNormalDelay('#raze-bar-prologue-6');">Doesn't sound easy money.</button>
+<div class="collapse" id="raze-bar-prologue-7">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Yup, to add to up to that, if you got it right in your first guess, your prize is <span class="blue-text">multiplied by 5</span>. If on second try, it's <span class="blue-text">multiplied by 4</span>, and if it's on the third try, it's <span class="blue-text">multiplied by 3</span>. That's it, no multiplier for the last 2 guesses, but remember, if you've won before, it will still add up to the total prize.</p>
   </div>
+</div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-7');fadeInNormalDelay('#raze-bar-prologue-8');">I think I get it now.</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');fadeOut('#raze-bar-prologue-7');fadeInNormalDelay('#raze-bar-prologue-8');">I'm ready but...</button>
 </div>
 
-<div class="collapse" id="raze-bar-prologue-6"><a>(${sibling})</a>
-  <p class="mid-em">Okay... so here's the good part. Everytime you win, it's being recorded in their system... and that will add up to your winnings. That means, if you've won 3 times before, and you win again, you'll be getting 4 dollars instead of 1 and so on... and it doesn't have to be a win streak.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-6');fadeInNormalDelay('#raze-bar-prologue-7');">I understand it now.</button>
+<div class="collapse" id="raze-bar-prologue-8">
+<div class="card border-0">
+  <div class="card-body npc-dialogue-card">
+    <h6><span class="blue-text">(${sibling})</span></h6>
+    <p class="mid-em">Now now... I know that you probably don't have a dollar to your name, right? So here's 20 bucks... you can pay it back to me later if you want.</p>
+    <p class="mid-em">Just don't lose it all, alright?</p>
   </div>
 </div>
-
-<div class="collapse" id="raze-bar-prologue-7"><a>(${sibling})</a>
-  <p class="mid-em">And to add to up to that, if you got it right in your first guess, your prize is <a>multiplied by 5</a>. If on second try, it's <a>multiplied by 4</a>, and if it's on the third try, it's <a>multiplied by 3</a>. That's it, no multiplier for the last 2 guesses, but remember, if you've won before, it will still add up to the total prize.</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="fadeOut('#raze-bar-prologue-7');fadeInNormalDelay('#raze-bar-prologue-8');">I think I get it now.</button>
-    <button class="ms-3" onclick="fadeOut('#raze-bar-prologue-7');fadeInNormalDelay('#raze-bar-prologue-8');">I'm ready but...</button>
-  </div>
+<button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('raze_tutorial_complete', true);gameStoryProgressTicker();icreaseCitizenCash(20);fadeOut('#raze-prologue-tutorial');">I'll do my best.</button>
+<button class="float-end mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('raze_tutorial_complete', true);gameStoryProgressTicker();icreaseCitizenCash(20);fadeOut('#raze-prologue-tutorial');">You're the best, ${siblingShort}.</button>
 </div>
-
-<div class="collapse" id="raze-bar-prologue-8"><a>(${sibling})</a>
-  <p class="mid-em">Now now... I know that you probably don't have a dollar to your name, right? So here's 20 bucks... you can pay it back to me later if you want.</p>
-  <p class="mid-em">Just don't lose it all, alright?</p>
-  <br><br>
-  <hr>
-  <div class="align-right">
-    <button onclick="setProgressLocalStorage('raze_tutorial_complete', true);gameStoryProgressTicker();icreaseCitizenCash(20);fadeOut('#raze-prologue-tutorial');">I'll do my best.</button>
-    <button class="ms-3" onclick="setProgressLocalStorage('raze_tutorial_complete', true);gameStoryProgressTicker();icreaseCitizenCash(20);fadeOut('#raze-prologue-tutorial');">You're the best, ${siblingShort}.</button>
-  </div>
 </div>
-</div>`
+`
 
 /**
  * <button onclick="setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#raze-bar-prologue-1);">Continue...</button>
- * 
+ * I'll go get us something to eat.
  * 
  * 
  * 
