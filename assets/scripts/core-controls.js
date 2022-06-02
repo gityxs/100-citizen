@@ -32,7 +32,7 @@ window.onload = function () {
 function gameStoryProgressTicker() {
 
   if (localStorage.getItem('welcome_done') == null) {
-    centerFrame.style = 'margin-top: 25vh'
+    centerFrame.style = 'margin-top: 17vh'
     $(centerFrame).fadeIn(2000);
     centerDialogueBox.innerHTML = starterDialogue;
   }
