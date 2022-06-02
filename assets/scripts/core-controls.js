@@ -47,7 +47,7 @@ function gameStoryProgressTicker() {
   }
 
   if (localStorage.getItem('show_identification_2') == null && localStorage.getItem('show_identification') == 'true') {
-    currentLocationUI.innerHTML = `<a style="color: #bcaaa4">SC Border Patrol Office</a>`;
+    currentLocationUI.innerHTML = `<a style="color: #bcaaa4">SC Border Patrol</a>`;
     leftFrame.style = 'margin-top: 10vh'
     $(leftFrame).fadeIn(500);
     leftDialogueBox.innerHTML = borderPatrolDialogue2;
@@ -55,7 +55,7 @@ function gameStoryProgressTicker() {
 
   if (localStorage.getItem('family_reunited') == null && localStorage.getItem('show_identification_2') == 'true') {
     setTimeout(function () {
-      currentLocationUI.innerHTML = `<a style="color: #bcaaa4">Outside the SCBP Office</a>`;
+      currentLocationUI.innerHTML = `<a style="color: #bcaaa4">Outside the SCBP</a>`;
       leftFrame.style = 'margin-top: 10vh'
       $(leftFrame).fadeIn(500);
       leftDialogueBox.innerHTML = borderPatrolDialogue3;
