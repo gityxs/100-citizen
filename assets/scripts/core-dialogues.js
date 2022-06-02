@@ -30,7 +30,7 @@ borderPatrolDialogue1 =
 
     </div>
   </div>
-  <button class="float-end mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification', true);saveUserInputValue('citizen_username', '#citizen-username-input');saveUserInputValue('citizen_identifier', '#citizen-pronoun-input');saveUserInputValue('citizen_preferred_address', '#citizen-preferred-address-input');fadeOut('#border-patrol-dialogue-1');refreshPage();">Sure, here it is, officer</button>
+  <button class="mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification', true);saveUserInputValue('citizen_username', '#citizen-username-input');saveUserInputValue('citizen_identifier', '#citizen-pronoun-input');saveUserInputValue('citizen_preferred_address', '#citizen-preferred-address-input');fadeOut('#border-patrol-dialogue-1');refreshPage();">Sure, here it is, officer</button>
 </div>`
 
 borderPatrolDialogue2 =
