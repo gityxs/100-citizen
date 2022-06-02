@@ -10,7 +10,7 @@ borderPatrolDialogue1 =
     <div class="card-body npc-dialogue-card">
       <h6><span class="blue-text">(Officer Saeki)</span></h6>
       <p class="high-em">Hi, my name is <span class="blue-text">Officer Saeki</span> and welcome to <span class="blue-text">SáruCity</span>. Can I see your papers and identification?</p>
-      <p class="high-em">Also, here's a form you have to sign.</p>
+      <p class="high-em">Also, here's a form you have to sign:</p>
       <form>
         <div class="mb-3">
           <label class="high-em" for="citizen-username-input" class="form-label">Citizen Name</label>
