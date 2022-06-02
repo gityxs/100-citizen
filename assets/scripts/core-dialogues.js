@@ -17,7 +17,14 @@ borderPatrolDialogue1 =
         <label class="high-em" for="citizen-username-input" class="form-label">Citizen Name</label>
         <input class="form-control" id="citizen-username-input" type="text" value="Zero" autocomplete="off" spellcheck="false" aria-describedby="citizenUsernameInput">
       </div>
-    
+      <div class="mb-3">
+      <label class="high-em" for="citizen-pronoun-input" class="form-label">Citizen Identifier</label>
+      <select class="form-select" id="citizen-pronoun-input" aria-label="citizenPronounInput">
+        <option value="He/Him">He/Him</option>
+        <option value="She/Her">She/Her</option>
+        <option value="They/Them">They/Them</option>
+      </select>
+    </div>
     </form>
 
 
