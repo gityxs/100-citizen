@@ -40,7 +40,7 @@ function gameStoryProgressTicker() {
   if (localStorage.getItem('show_identification') == null && localStorage.getItem('welcome_done') == 'true') {
     $('#center-main-frame').fadeOut(100);
     centerDialogueBox.innerHTML = ``;
-    currentLocationUI.innerHTML = `<a style="color: #bcaaa4">SC Border Patrol Office</a>`;
+    currentLocationUI.innerHTML = `<a style="color: #bcaaa4">SC Border Patrol</a>`;
     leftFrame.style = 'margin-top: 10vh'
     $(leftFrame).fadeIn(500);
     leftDialogueBox.innerHTML = borderPatrolDialogue1;
