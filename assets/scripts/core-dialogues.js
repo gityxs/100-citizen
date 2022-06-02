@@ -34,7 +34,8 @@ borderPatrolDialogue2 =
     <p class="mid-em">Alright, <span class="blue-text">${citizenUsername}</span>, your profile looks good to me... Here's your papers. You're good to go. The exit is that way... Have a good day!</p>
   </div>
 </div>
-
+<button class="mt-4 dialogue-response-btn" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#left-main-frame');">Thank you, officer</button>
+<button class="mt-4 dialogue-response-btn me-3" onclick="playBackgroundMusic('click.wav');setProgressLocalStorage('show_identification_2', true);gameStoryProgressTicker();fadeOut('#left-main-frame');">Okay</button>
 </div>`
 
 borderPatrolDialogue3 =
