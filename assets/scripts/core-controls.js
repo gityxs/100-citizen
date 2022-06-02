@@ -178,24 +178,24 @@ function initializeCharacterStats() {
   // WINS STAT
   if (localStorage.getItem('total_game_wins') === null) {
     localStorage.setItem('total_game_wins', 0);
-    totalWinsUI.innerHTML = `0 <br> WIN`
+    totalWinsUI.innerHTML = `0`
   }
   else {
     setInterval(updateGameWinsTicker, 33);
     function updateGameWinsTicker() {
-      totalWinsUI.innerHTML = `${localStorage.getItem('total_game_wins').toLocaleString()} <br> WIN`
+      totalWinsUI.innerHTML = `${localStorage.getItem('total_game_wins').toLocaleString()}`
     }
   }
 
   // LOSSES STAT
   if (localStorage.getItem('total_game_losses') === null) {
     localStorage.setItem('total_game_losses', 0);
-    totalLossesUI.innerHTML = `0 <br> LOSS`
+    totalLossesUI.innerHTML = `0`
   }
   else {
     setInterval(updateGameLossesTicker, 33);
     function updateGameLossesTicker() {
-      totalLossesUI.innerHTML = `${localStorage.getItem('total_game_losses').toLocaleString()} <br> LOSS`
+      totalLossesUI.innerHTML = `${localStorage.getItem('total_game_losses').toLocaleString()}`
     }
   }
 

@@ -114,7 +114,6 @@ body {
 }
 
 .citizen-stats-wins {
-  font-size: 1.5rem;
   color: #a5d6a7;
   cursor: default;
   text-decoration: none;
@@ -125,7 +124,6 @@ body {
 }
 
 .citizen-stats-losses {
-  font-size: 1.5rem;
   color: #e57373;
   cursor: default;
   text-decoration: none;
@@ -274,4 +272,8 @@ option, select {
 
 .blue-text {
   color: #81d4fa;
+}
+
+.game-score-ui {
+  font-size: 2rem;
 }
