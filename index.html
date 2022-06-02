@@ -61,7 +61,6 @@
       outline: 0;
       border: 3px solid;
     }
-
   </style>
 
   <script>
@@ -113,7 +112,7 @@
           <a class="citizen-stats-guesses mt-5 d-block" id="number-of-guesses"></a>
           <button class="mt-4 guessing-game-start-button" id="start-btn" onclick="verifyIfCanStartGuessingGame();playBackgroundMusic('click.wav');">PLAY (R)</button><br>
           <div class="collapse" id="restart-btn"><button class="mt-4 guessing-game-start-button" onclick="playAgain();playBackgroundMusic('click.wav');">PLAY AGAIN (R)</button></div>
-          <div class="input-group mt-1 mx-auto w-50">
+          <div class="input-group mt-1 mx-auto w-75">
             <input class="collapse form-control mt-1" id="guessing-game-input" type="number" min="0" max="100" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
           </div>
           <h4 class="mt-5 high-em" id="system-message"></h4>
