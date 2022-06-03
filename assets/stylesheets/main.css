@@ -45,7 +45,7 @@ body {
 
 #guessing-game-input {
   outline: 0;
-  border: 3px solid;
+  border: 1px solid;
 }
 
 html {
@@ -302,11 +302,12 @@ option, select {
 
 .form-control {
   box-shadow: none !important;
-  border: none;
+  border: 1px solid #ccc;
 }
 
 .form-control:focus, .form-control:active, .form-select:focus {
   box-shadow: none !important;
+  border: 1px solid #ccc;
 }
 
 .blue-text {
