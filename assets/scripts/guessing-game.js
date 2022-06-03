@@ -2,7 +2,6 @@ const gameInput = document.querySelector('#guessing-game-input');
 const guessesUI = document.querySelector('#number-of-guesses');
 const systemMessageUI = document.querySelector('#system-message');
 
-
 const totalWinsUI = document.querySelector('#total-number-of-wins');
 const totalLossesUI = document.querySelector('#total-number-of-losses');
 
