@@ -7,11 +7,3 @@ All for you to decide in 100 Citizen.
 
 
 ##Credits
-Bit Space music by Beam Theory
-https://opengameart.org/users/beam-theory
-
-Pondering the Cosmos by Ruskerdax
-https://opengameart.org/users/ruskerdax
-
-Lost and Faltering
-https://opengameart.org/users/eric-matyas
