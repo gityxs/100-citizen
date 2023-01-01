@@ -10,4 +10,9 @@ Any names, organizations, locations, or events appearing in this game are fictit
 Any resemblance to real names, organizations, locations, events, etc. is purely coincidental.
 This game is a work of imagination and fantasy, and above all else, just a game.
 
+Deployed at https://100-citizen.netlify.app/
+
+
+NOTE: This is an unfinished project.
+
 ##Credits

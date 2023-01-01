@@ -88,7 +88,6 @@ function startGuessingGame() {
 
       // IF Won
       else if (gameInput.value == randomNumber) {
-        playBackgroundMusic('assets/sfx/victory.wav');
         $(gameInput).fadeOut();
         setTimeout(function () {
           $('#restart-btn').fadeIn();

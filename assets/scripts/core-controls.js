@@ -170,7 +170,6 @@ function initializeCharacterStats() {
   else {
     setInterval(updateGameEnergyTicker, 33);
     function updateGameEnergyTicker() {
-      console.log(localStorage.getItem('citizen_energy'));
       citizenEnergyUI.innerHTML = `⚡${localStorage.getItem('citizen_energy')}`
     }
   }
@@ -252,12 +251,6 @@ function deleteAllCitizenSavedData() {
     refreshPage();
   }
 }
-
-function playBackgroundMusic(title) {
-  let audio = new Audio(title);
-  audio.play();
-}
-
 
 /**
  * Add Total Number of Games

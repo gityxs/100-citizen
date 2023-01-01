@@ -15,7 +15,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="assets/scripts/jquery-3.6.0.min.js"></script>
   <script src="assets/scripts/header.js"></script>
-  <link rel="preload" href="assets/sfx/click.wav" as="audio" type="audio/wav">
 
   <style>
 
@@ -49,7 +48,7 @@
       <h1 class="high-em game-title">100 Citizen</h1>
       <h5 class="low-em author-title float-end" style="margin-right: 15%">by Ivma</h5>
       <div class="collapse mt-5" id="continue-playing-container">
-        <button id="continue-playing-btn" onclick="titleScreenStartUpGame();playBackgroundMusic('assets/sfx/click.wav');" style="margin-top: 30%;">RESUME GAME</button><br>
+        <button id="continue-playing-btn" onclick="titleScreenStartUpGame();" style="margin-top: 30%;">RESUME GAME</button><br>
         <button class="mt-3" id="reset-game-data-btn" onclick="deleteAllCitizenSavedData();">DELETE SAVE</button>
       </div>
     </section>
@@ -61,8 +60,8 @@
         <a id="collapse total-games-played"></a>
         <p class="fw-bold game-score-ui"><span class="citizen-stats-wins" id="total-number-of-wins"></span> - <span class="citizen-stats-losses" id="total-number-of-losses"></span></p>
         <a class="citizen-stats-guesses mt-5 d-block" id="number-of-guesses"></a>
-        <button class="mt-4 guessing-game-start-button" id="start-btn" onclick="verifyIfCanStartGuessingGame();playBackgroundMusic('assets/sfx/click.wav');">PLAY (R)</button><br>
-        <div class="collapse" id="restart-btn"><button class="mt-4 guessing-game-start-button" onclick="playAgain();playBackgroundMusic('assets/sfx/click.wav');">PLAY AGAIN (R)</button></div>
+        <button class="mt-4 guessing-game-start-button" id="start-btn" onclick="verifyIfCanStartGuessingGame();">PLAY (R)</button><br>
+        <div class="collapse" id="restart-btn"><button class="mt-4 guessing-game-start-button" onclick="playAgain();">PLAY AGAIN (R)</button></div>
         <div class="input-group mt-1 mx-auto w-75">
           <input class="collapse text-center form-control mt-1" id="guessing-game-input" type="number" min="0" max="100" autocomplete="off" spellcheck="false" placeholder="Enter 0 to 100">
         </div>
