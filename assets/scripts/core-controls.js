@@ -246,7 +246,7 @@ function updateCitizenLocation(location) {
 }
 
 function deleteAllCitizenSavedData() {
-  if (confirm('Are you sure you want to delete your saved game data?') == true) {
+  if (confirm('您确定要删除保存的游戏数据吗？') == true) {
     localStorage.clear();
     refreshPage();
   }
