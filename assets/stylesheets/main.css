@@ -1,0 +1,319 @@
+:root {
+  --bright-pink: #F806CC;
+  --neutral-pink: #A91079;
+  --dark-pink: #570A57;
+  --red-violet: #2E0249;
+  --default-dark: #121212;
+  --default-white: #fff;
+  --dark-grey: #32383D;
+  --grey: #4c555c;
+
+  --high-em: 87%;
+  --mid-em: 60%;
+  --low-em: 38%;
+
+  --default-font: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* * {
+      outline: 1px solid red;
+    } */
+
+body {
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.main-container {
+  max-width: 42em;
+}
+
+.location-heading-ui {
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: var(--default-white);
+  opacity: var(--high-em);
+  font-size: 1.5rem !important;
+}
+
+.form-control:focus {
+  border-color: #121212;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+#guessing-game-input {
+  outline: 0;
+  border: 1px solid;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-y: hidden;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+a {
+  -webkit-user-drag: none;
+}
+
+.donothighlight {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+body {
+  background-color: var(--default-dark);
+  font-family: var(--default-font);
+  color: var(--default-white);
+}
+
+.game-title {
+  font-size: 5.5rem;
+  font-weight: 300;
+}
+
+.high-em {
+  color: var(--default-white);
+  opacity: var(--high-em);
+}
+
+.mid-em {
+  color: var(--default-white);
+  opacity: var(--mid-em);
+}
+
+.low-em {
+  color: var(--default-white);
+  opacity: var(--low-em);
+}
+
+.blue-location-card {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background: rgba(35, 37, 40, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.citizen-stats {
+  font-size: 2rem;
+  border: 1px solid #c0c0c0;
+  cursor: default;
+}
+
+.citizen-stats:hover {
+  border: 1px solid #c0c0c0;
+  cursor: default;
+}
+
+.citizen-stats:focus {
+  border: 1px solid #c0c0c0;
+  cursor: default;
+}
+
+.citizen-stats-cash {
+  color: #a5d6a7;
+}
+
+.citizen-stats-cash:hover {
+  color: #a5d6a7;
+}
+
+.citizen-stats-energy {
+  color: #80deea;
+}
+
+.citizen-stats-energy:hover {
+  color: #80deea;
+}
+
+.citizen-stats-wins {
+  color: #a5d6a7;
+  cursor: default;
+  text-decoration: none;
+}
+
+.citizen-stats-wins:hover {
+  color: #a5d6a7;
+}
+
+.citizen-stats-losses {
+  color: #e57373;
+  cursor: default;
+  text-decoration: none;
+}
+
+.citizen-stats-losses:hover {
+  color: #e57373;
+}
+
+.citizen-stats-guesses {
+  font-size: 1.3rem;
+  color: #eee;
+  cursor: default;
+  text-decoration: none;
+}
+
+.citizen-stats-guesses:hover {
+  color: #eee;
+}
+
+.guessing-game-start-button {
+  padding: 6px;
+  border: 2px solid #eee;
+  background-color: transparent;
+  font-size: 1.4rem;
+  color: var(--default-white);
+  opacity: var(--high-em);
+}
+
+.guessing-game-start-button:hover {
+  border: 2px solid #ddd;
+  color: #ddd;
+}
+
+.guessing-game-start-button:active {
+  border: 2px solid #ddd;
+  color: #ddd;
+  transform: translateY(2px);
+}
+
+#continue-playing-btn {
+  padding: 6px;
+  border: 2px solid #eee;
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: var(--default-white);
+  opacity: var(--high-em);
+}
+
+#continue-playing-btn:hover {
+  border: 2px solid #ddd;
+  color: #ddd;
+}
+
+#continue-playing-btn:active {
+  border: 2px solid #ddd;
+  color: #ddd;
+  transform: translateY(2px);
+}
+
+#reset-game-data-btn {
+  padding: 6px;
+  font-size: 1.3rem;
+  color: #d42b2b;
+  border: 2px solid #d42b2b;
+  background-color: transparent;
+}
+
+#reset-game-data-btn:hover {
+  color: #b82525;
+  border: 2px solid #b82525;
+}
+
+#reset-game-data-btn:active {
+  transform: translateY(2px);
+}
+
+#debugging-interval-counter,
+#debug-answer {
+  position: absolute;
+  z-index: 999;
+}
+
+.default-light-btn-lg {
+  border: 2px solid #eee;
+  background-color: transparent;
+  font-size: 1.6rem;
+  color: #eee;
+  opacity: var(--high-em);
+}
+
+.default-light-btn-lg:hover {
+  border: 2px solid #ddd;
+  color: #ddd;
+}
+
+.default-light-btn-lg:active {
+  border: 2px solid #ddd;
+  color: #ddd;
+  transform: translateY(2px);
+}
+
+.dialogue-response-btn {
+  padding: 8px;
+  margin-right: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  background-color: transparent;
+  font-size: 1.1rem;
+  color: #eee;
+  opacity: var(--high-em);
+}
+
+.dialogue-response-btn:hover {
+  border: 2px solid #ccc;
+  color: #eee;
+}
+
+.dialogue-response-btn:active {
+  border: 2px solid #ccc;
+  color: #eee;
+  transform: translateY(2px);
+}
+
+.npc-dialogue-card {
+  background: #121212;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 0 !important;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+input[type], input[type]:focus {
+  background-color: #121212;
+  color: #ccc;
+  font-size: 20px;
+  opacity: var(--high-em);
+}
+
+option, select {
+  background-color: #121212 !important;
+  color: #ccc !important;
+  opacity: var(--high-em) !important;
+}
+
+.form-control {
+  box-shadow: none !important;
+  border: 1px solid #ccc;
+}
+
+.form-control:focus, .form-control:active, .form-select:focus {
+  box-shadow: none !important;
+  border: 1px solid #ccc;
+}
+
+.blue-text {
+  color: #81d4fa;
+}
+
+.game-score-ui {
+  font-size: 2rem;
+}
